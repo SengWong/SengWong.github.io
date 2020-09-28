@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content>
+    <meta name="keyword" content>
+    <link rel="shortcut icon" href="/img/ironman-draw.png">
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <title>
+        
+          限制性三体问题(1):运动方程、雅可比积分与梯塞朗判据 - StarKing
+        
+    </title>
+
+    <link rel="canonical" href="http://sengwong.top/2020/09/28/the-restricted-three-body-problem/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS --> 
+    <link rel="stylesheet" href="/css/beantech.min.css">
+    
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css">
+
+    <link rel="stylesheet" href="/css/widget.css">
+
+    <link rel="stylesheet" href="/css/rocket.css">
+
+    <link rel="stylesheet" href="/css/signature.css">
+
+    <link rel="stylesheet" href="/css/toc.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+	<!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        
+            background-image: url('PCR3BP.jpg')
+            /*post*/
+        
+    }
+    
+    #signature{
+        background-image: url('/img/signature/signature.png');
+    }
+    
+</style>
+
+<header class="intro-header" >
+    <!-- Signature -->
+    <div id="signature">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                
+                    <div class="post-heading">
+                        <div class="tags">
+                            
+                              <a class="tag" href="/tags/#行星科学" title="行星科学">行星科学</a>
+                            
+                        </div>
+                        <h1>限制性三体问题(1):运动方程、雅可比积分与梯塞朗判据</h1>
+                        <h2 class="subheading"></h2>
+                        <span class="meta">
+                            Posted by StarKing on
+                            2020-09-28
+                        </span>
+                    </div>
+                
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+	
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">StarKing</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/Publication/">论文发表</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/Research-Interests/">研究兴趣</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">关于我</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archive/">归档</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">标签</a>
+                        </li>
+                        
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    <!-- Modify by Yu-Hsuan Yen -->
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <p>考虑一个包含质量分别为$m_{1},m_{2},m_{3}$的三个受相互引力作用的天体组成的孤立系统. 假设$m_{3}$远小于$m_{1},m_{2}$, 且$m_{1},m_{2}$是以开普勒轨道相互绕转, $m_{3}$对这两个天体的运动的影响可忽略不计,在此前提下,该问题就被称为限制性三体问题.若将$m_{1},m_{2}$的轨道近似为圆形, 且$m_{3}$的轨道处于这个圆形轨道平面上, 则该问题也被称为平面圆形限制性三体问题(PCR3BP: Planar Circular Restricted Three-body Problem). 该问题可以应用到太阳系中. 比如, 质量大的天体,$m_{1},m_{2}$可代表太阳和行星, 可以近似认为行星与太阳绕着共同的质心做正圆运动. 而$m_{3}$可代表人造飞船、火箭、小天体或彗星(这些物体的质量远小于太阳和行星的质量).</p>
+<h1><span id="限制性三体问题的运动方程">限制性三体问题的运动方程</span></h1>
+<p>在研究限制性三体问题时, 为了在简化参数计算, 通常对一些参数进行无量纲化:</p>
+<ol>
+<li>
+<p>两个质量大的天体的总重量可以认为是单位质量:$M=m_{1}+m_{2}=1$, 此时设$m_{2}=\mu\le\frac{1}{2}$, 则$m_{1}=1-\mu$;</p>
+</li>
+<li>
+<p>$m_{1},m_{2}$相互绕转的椭圆半长径为单位长度:$a=1$;</p>
+</li>
+<li>
+<p>$m_{1},m_{2}$相互绕转的角频率可以认为单位频率:$n=1$;</p>
+</li>
+</ol>
+<p>此时, $GM=1,T=2\pi$.</p>
+<p>为了方便研究, 先取一个惯性坐标系$O-\xi\eta\zeta$. 其中,$O$为$m_{1},m_{2}$的质心, 两者的轨道平面为$\xi-\eta$平面. 初始时刻$m_{1},m_{2}$位于$\xi$轴上.</p>
+<p>根据双星系统模型, $r=r_{1}+r_{2}=\frac{a(1-e^{2})}{1+e\cos{f}}$, 且：<br>
+$$<br>
+r_{1}=\frac{m_{2}}{m_{1}+m_{2}}r, r_{2}=\frac{m_{1}}{m_{1}+m_{2}}r \<br>
+$$</p>
+<p>根据上述无量纲化参数的假设, 则有<br>
+$$<br>
+r_{1}=\mu r, r_{2}=(1-\mu) r, r=\frac{1-e^{2}}{1+e\cos{f}}\<br>
+$$</p>
+<p>在坐标系$O-\xi\eta\zeta$中, 设当$m_{1},m_{2}$的连线旋转$f$角度后, $m_{i}$的坐标为$\left(\xi_{i},\eta_{i},0\right),i=1,2$. 设$m_{3}$的坐标为$\textbf{r}_{I}(\xi,\eta,\zeta)$. 则：</p>
+<p>$$<br>
+\xi_{1}=-\mu r\cos{f}, \eta_{1}=-\mu r\sin{f}<br>
+$$</p>
+<p>$$<br>
+\xi_{2}=(1-\mu) r\cos{f}, \eta_{2}=(1-\mu) r\sin{f}<br>
+$$</p>
+<p><img src="https://static01.imgkr.com/temp/e926002b5b284d38ba8abc0176a37a1a.jpg" alt><center>限制性三体问题中坐标系示意图</center></p>
+<p>在惯性坐标系$O-\xi\eta\zeta$中, 设$m_{3}$与$m_{i}$之间的距离为$\rho_{i},i=1,2,$ 则:<br>
+$$<br>
+\rho_{i}=\sqrt{\left(\xi-\xi_{i}\right)^{2}+\left(\eta-\eta_{i}\right)^{2}+\zeta^{2}}<br>
+$$</p>
+<p>根据牛顿第二定律, $m_{3}$的运动方程为：$\ddot{\textbf{r}}_ {I}=\nabla_{I}W $,其中：<br>
+$$<br>
+W=\frac{1-\mu}{\rho_{1}}+\frac{\mu}{\rho_{2}}<br>
+$$<br>
+$$<br>
+\nabla_{I}=\left(\frac{\partial}{\partial \xi},\frac{\partial}{\partial \eta},\frac{\partial}{\partial \zeta}\right)^{T}<br>
+$$</p>
+<p>展开,得：<br>
+$$<br>
+\ddot{\xi}=-(1-\mu)\frac{\xi-\xi_{1}}{\rho_{1}^{3}}-\mu\frac{\xi-\xi_{2}}{\rho_{2}^{3}}<br>
+$$<br>
+$$<br>
+\ddot{\eta}=-(1-\mu)\frac{\eta-\eta_{1}}{\rho_{1}^{3}}-\mu\frac{\eta-\eta_{2}}{\rho_{2}^{3}}<br>
+$$<br>
+$$<br>
+\ddot{\zeta}=-(1-\mu)\frac{\zeta}{\rho_{1}^{3}}-\mu\frac{\zeta}{\rho_{1}^{3}}<br>
+$$</p>
+<p>现选取随行星$m_{2}$旋转的坐标系$O-xyz$,使得$x$轴始终位于两个主天体$m_{1},m_{2}$的连接线上. 则在$O-xyz$中, $m_{3}$的坐标为$\textbf{r}_ {R}(x,y,z)$. 则$\textbf{r}_ {R}(x,y,z)$与$\textbf{r}_ {I}(\xi,\eta,\zeta)$的关系如下：$\textbf{r}_ {R}=R_{z}(f)\textbf{r}_ {I}$. 其中$R_ {z}(f)$为绕$z$轴逆时针方向旋转$f$角度的旋转矩阵：<br>
+$$<br>
+R_{z}(f)=\begin{pmatrix} \cos f &amp; \sin f &amp; 0 \ -\sin f &amp;\cos f &amp; 0 \ 0 &amp; 0 &amp; 1 \end{pmatrix}<br>
+$$</p>
+<p>定义$R(f)=R_{z}(-f)=R_{z}^{-1}(f)$. 则$\textbf{r}_ {I}=R(f)\textbf{r}_ {R}$. 此时:<br>
+$$<br>
+\dot{\textbf{r}}_ {I}=\dot{R}(f)\textbf{r}_ {R}+R(f)\dot{\textbf{r}}<em>{R}<br>
+$$<br>
+$$<br>
+\ddot{\textbf{r}}</em>{I}=\ddot{R}(f)\textbf{r}<em>{R}+2\dot{R}(f)\dot{\textbf{r}}</em>{R}+R(f)\ddot{\textbf{r}}<em>{R} \<br>
+$$<br>
+$$<br>
+\nabla</em>{I}W=\left(\frac{\partial \textbf{r}<em>{R}}{\partial\textbf{r}</em>{I} }\right)^{T} \nabla_{R}W=R(f)\nabla_{R}W \<br>
+$$<br>
+则坐标系$O-\xi\eta\zeta$下$m_{3}$的运动方程$\ddot{\textbf{r}}<em>{I}=\nabla</em>{I}W$在坐标系$O-xyz$下的形式为：<br>
+$$<br>
+\ddot{R}(f)\textbf{r}<em>{R}+2\dot{R}(f)\dot{\textbf{r}}</em>{R}+R(f)\ddot{\textbf{r}}<em>{R}=R(f)\nabla</em>{R}W \<br>
+$$<br>
+展开,得:<br>
+$$<br>
+\ddot{x}-2\dot{f}\dot{y}-{\dot{f}}^{2}x-\ddot{f}y=\frac{\partial W}{\partial x} \<br>
+$$<br>
+$$<br>
+\ddot{y}+2\dot{f}\dot{x}-{\dot{f}}^{2}y+\ddot{f}x=\frac{\partial W}{\partial y} \<br>
+$$<br>
+$$<br>
+\ddot{z}=\frac{\partial W}{\partial z} \<br>
+$$<br>
+其中:<br>
+$$<br>
+W=\frac{1-\mu}{\sqrt{\left(x+\mu r\right)^{2}+y^{2}+z^{2}}}+\frac{\mu}{\sqrt{\left[x-(1-\mu) r\right]^{2}+y^{2}+z^{2}}} \<br>
+$$<br>
+$$<br>
+r=\frac{1-e^{2}}{1+e\cos f}, \dot{f}=\frac{\left(1+e\cos f\right)^{2}}{\left(1-e^{2}\right)^{\frac{3}{2}}}, \ddot{f}=-\frac{2e \left(1+e\cos f\right)^{3} \sin f }{\left(1-e^{2}\right)^{3}} \<br>
+$$<br>
+而这是描述当主天体$m_{1},m_{2}$相互做椭圆运动绕转时, $m_{3}$在$O-xyz$坐标系下的运动方程.</p>
+<h1><span id="平面圆形限制性三体问题的运动方程">平面圆形限制性三体问题的运动方程</span></h1>
+<p>若考虑主天体$m_{1},m_{2}$相互做正圆运动绕转, 则该问题就转为平面圆形限制性三体问题. 此时偏心率$e=0$,此时$r=1$, $\dot{f}=n=1$,$\ddot{f}=0$. 则$m_{3}$的运动方程简化为:<br>
+$$<br>
+\ddot{x}-2n\dot{y}=\frac{\partial \Omega}{\partial x} \<br>
+$$<br>
+$$<br>
+\ddot{y}+2n\dot{x}=\frac{\partial \Omega}{\partial y} \<br>
+$$<br>
+$$<br>
+\ddot{z}=\frac{\partial \Omega}{\partial z} \<br>
+$$<br>
+其中$-2n\dot{y},2n\dot{x}$为科里奥利项.<br>
+$$<br>
+\Omega=\frac{1}{2}n^{2}\left(x^{2}+y^{2}\right)+\frac{1-\mu}{\sqrt{\left(x+\mu \right)^{2}+y^{2}+z^{2}}}+\frac{\mu}{\sqrt{\left(x-1+\mu \right)^{2}+y^{2}+z^{2}}} \<br>
+$$<br>
+为等效势, $\frac{1}{2}n^{2}\left(x^{2}+y^{2}\right)$为离心势.</p>
+<h1><span id="雅可比积分">雅可比积分</span></h1>
+<p>对上述运动方程边分别乘$\dot{x},\dot{y},\dot{z}$,再相加,得：<br>
+$$<br>
+\dot{x}\ddot{x}+\dot{y}\ddot{y}+\dot{z}\ddot{z}=\frac{\partial \Omega}{\partial x}\dot{x}+\frac{\partial \Omega}{\partial y}\dot{y}+\frac{\partial \Omega}{\partial z}\dot{z}=\frac{d\Omega}{dt} \<br>
+$$<br>
+两边积分, 得：<br>
+$$<br>
+\frac{1}{2}\left(\dot{x}^{2}+\dot{y}^{2}+\dot{z}^{2}\right)=\Omega-\frac{1}{2}C_{J} \<br>
+$$<br>
+其中$C_{J}$称为雅可比积分常数. 展开,即为：<br>
+$$<br>
+\frac{1}{2}\left(\dot{x}^{2}+\dot{y}^{2}+\dot{z}^{2}\right)-\frac{1}{2}n^{2}\left(x^{2}+y^{2}\right)-\frac{1-\mu}{\rho_{1}}-\frac{\mu}{\rho_{2}}=-\frac{1}{2}C_{J} \<br>
+$$<br>
+其中<br>
+$$<br>
+\rho_{1}(x,y,z)=\sqrt{\left(x+\mu \right)^{2}+y^{2}+z^{2}}\<br>
+$$<br>
+$$<br>
+\rho_{2}(x,y,z)=\sqrt{\left(x-1+\mu \right)^{2}+y^{2}+z^{2}} \<br>
+$$<br>
+该式称为雅可比积分,且不依赖于坐标系. 利用如下关系式将该式换算到惯性坐标系$O-\xi\eta\zeta$:<br>
+$$<br>
+x^{2}+y^{2}=\xi^{2}+\eta^{2} \<br>
+$$<br>
+$$<br>
+\dot{x}^{2}+\dot{y}^{2}+\dot{z}^{2}=\left(\dot{\xi}^{2}+\dot{\eta}^{2}+\dot{\zeta}^{2}\right)+n^{2}\left(\xi^{2}+\eta^{2}\right)+2n\left(\eta\dot{\xi}-\xi\dot{\eta}\right) \<br>
+$$<br>
+则雅可比积分可写为：<br>
+$$<br>
+\frac{1}{2}\left(\dot{\xi}^{2}+\dot{\eta}^{2}+\dot{\zeta}^{2}\right)+n\left(\eta\dot{\xi}-\xi\dot{\eta}\right)-\frac{1-\mu}{\rho_{1}}-\frac{\mu}{\rho_{2}}=-\frac{1}{2}C_{J} \<br>
+$$<br>
+该式又可以整理为:<br>
+$$<br>
+E=\frac{1}{2}\left(\dot{\xi}^{2}+\dot{\eta}^{2}+\dot{\zeta}^{2}\right)-\left(\frac{1-\mu}{\rho_{1}}+\frac{\mu}{\rho_{2}}\right)=\textbf{n}\cdot\textbf{h}-\frac{1}{2}C_{J} \<br>
+$$<br>
+其中$E$为$m_{3}$单位质量的能量, $\textbf{h}=\textbf{r}<em>{I}\times \dot{\textbf{r}}</em>{I}$为$m_{3}$的单位角动量,$\textbf{n}=(0,0,n)$为$m_{1},m_{2}$的轨道角速度. 然而$\textbf{h}$并不守恒,故$E$也不守恒. 事实上, 对于平面圆形限制性三体问题,雅可比积分守恒.</p>
+<h1><span id="梯塞朗判据">梯塞朗判据</span></h1>
+<p>平面圆形限制性三体问题的雅可比积分可应用于太阳-木星-彗星系统.若$m_{1}$为太阳,$m_{2}$为木星, $m_{3}$为彗星. 彗星的质量远小于太阳和木星, 且太阳与木星几乎围绕共同的质心做正圆运动. 则探索彗星的轨道运行等问题就是属于平面圆形限制性三体问题.</p>
+<p>由于太阳的质量远大于木星,除非彗星非常靠近木星,否则木星对彗星的引力可忽略. 在彗星靠近木星之前和远离木星之后, 彗星绕太阳做开普勒椭圆轨道运行. 其轨道有固定的轨道参数: 半长径$a$、偏心率$e$、椭圆轨道平面倾角$i$.然而在彗星靠近木星之前和远离木星之后,这些轨道参数肯定不一样. 那在靠近木星之前和远离之后,什么量不变呢? 下面就来分析这个问题.</p>
+<p>首先,彗星靠近木星之前和远离木星之后的所做椭圆运动, 其单位质量的能量守恒:<br>
+$$<br>
+E=\frac{1}{2}\left(\dot{\xi}^{2}+\dot{\eta}^{2}+\dot{\zeta}^{2}\right)-\frac{1}{r}=-\frac{1}{2a} \<br>
+$$<br>
+其单位质量的角动量$h$近似守恒:<br>
+$$<br>
+h=\sqrt{a\left(1-e^{2}\right)} \<br>
+$$<br>
+则:<br>
+$$<br>
+\textbf{n}\cdot\textbf{h}=nh\cos i=\sqrt{a\left(1-e^{2}\right)}\cos i \<br>
+$$<br>
+在限制性三体问题中, $n$做无量纲化处理$n=1$; $i$为彗星椭圆平面相对与木星轨道平面的倾角.</p>
+<p>由于木星质量远小于太阳质量,即$\mu\le 1$, 当$r,\rho_{1},\rho_{2}$不是很小时,有$\rho_{1}\approx r, \frac{\mu}{\rho_{2}}\ll \frac{1-\mu}{\rho_{1}}\approx \frac{1}{r}$.</p>
+<p>据此, 在惯性坐标系$O-\xi\eta\zeta$中, 雅可比积分可化为:<br>
+$$<br>
+-\frac{1}{2a}=\sqrt{a\left(1-e^{2}\right)}\cos i-\frac{1}{2}C_{J} \<br>
+$$<br>
+即:<br>
+$$<br>
+\frac{1}{a}+2\sqrt{a\left(1-e^{2}\right)}\cos i=C_{J} \<br>
+$$<br>
+把上述记为:<br>
+$$<br>
+T_{J}=\frac{1}{a}+2\sqrt{a\left(1-e^{2}\right)}\cos i \<br>
+$$<br>
+此为梯塞朗参数或梯塞朗不变量.</p>
+<p>记彗星靠近木星前的椭圆轨道参数为$a,e,i$; 远离木星后的椭圆轨道参数为$a^{\prime}, e^{\prime}, i^{\prime}$. 则有：<br>
+$$<br>
+\frac{1}{2a}+\sqrt{a\left(1-e^{2}\right)}\cos i=\frac{1}{2a^{\prime}}+\sqrt{a^{\prime}\left(1-{e^{\prime}}^{2}\right)}\cos i^{\prime} \<br>
+$$<br>
+这就是梯塞朗判据, 是由法国天文学家梯塞朗(Felix Tisserand)发现的.</p>
+<p>梯塞朗判据用途很广. 比如当天文学家发现一颗新彗星时, 首先计算它的梯塞朗参数$T_{J}$. 若这个参数与之间已经观测到的彗星的梯塞朗参数相同, 则发现的这颗新彗星就是原来已经发现过的彗星.</p>
+<p>此外, 梯塞朗判据还可以用来区分太阳系中的木星族彗星和小行星.</p>
+<p>下图给出了彗星和小行星的梯塞朗参数与其半长轴$a$的关系示意图.</p>
+<p><img src="https://static01.imgkr.com/temp/bf94dbee6b6c4c1bbbc9bf9f6ff26e18.png" alt><center>彗星和小行星的梯塞朗参数与其半长轴的关系示意图. 小黑点代表小行星,小黑块代表木星族彗星. 竖直的虚线代表木星轨道的半长轴,横直的虚线代表木星的梯塞朗参数.</center></p>
+<p>从图中可以看出, 木星的梯塞朗参数$T_{J}=3$.而小行星的梯塞朗参数$T_{J}&gt;3$, 木星族彗星的梯塞朗参数满足$2&lt; T_{J} &lt;3$, 而那些 $T_{J}\le 2$的天体属于达摩克型小行星(Damocloids).</p>
+<p>梯塞朗判据还可应用于引力助推(Gravity Assists,也叫引力弹弓效应). 在引力助推过程中, 梯塞朗参数守恒. 利用梯塞朗不变量, 可以调整飞行器在引力助推前后的飞行轨道参数. 比如在太阳-地球-太空飞船、土星-土卫六-卡西尼探测器系统中, 太空飞船或卡西尼探测器分别利用地球、土卫六进行引力助推.</p>
+<p>通过分析环绕银河系中心运转的恒星轨道, 利用梯塞朗判据还可以判断银河系中心的中等质量黑洞是否存在.</p>
+<p>至此, 已介绍完限制性三体问题的运动方程、雅可比积分与梯塞朗判据. 下一篇介绍平面圆形限制性三体问题的拉格朗日点、以及利用复分析来探索平面圆形限制性三体问题的复数解,最后利用该复数解来探讨阿波罗登月轨道设计.</p>
+
+                
+
+                <hr>
+                <!-- Pager -->
+                <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/2020/09/28/the-restricted-three-body-problem2/" data-toggle="tooltip" data-placement="top" title="限制性三体问题(2): 拉格朗日点与其稳定性分析">&larr; Previous Post</a>
+                        </li>
+                    
+                    
+                        <li class="next">
+                            <a href="/2020/09/27/Introduction-of-three-bodies-problem/" data-toggle="tooltip" data-placement="top" title="三体问题简史">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                <!-- duoshuo Share start -->
+                
+                <!-- 多说 Share end-->
+
+                <!-- 多说评论框 start -->
+                
+                <!-- 多说评论框 end -->
+
+                <!-- disqus comment start -->
+                
+                <!-- disqus comment end -->
+            </div>
+            
+            <!-- Tabe of Content -->
+            <!-- Table of Contents -->
+
+    
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">限制性三体问题的运动方程</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">平面圆形限制性三体问题的运动方程</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">雅可比积分</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">梯塞朗判据</span></a></li></ol>
+        
+        </div>
+      </aside>
+    
+
+                
+            <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                          <a class="tag" href="/tags/#行星科学" title="行星科学">行星科学</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+
+                    
+                        <li><a href="https://www.zhihu.com/people/wang-xing-94-61" target="_blank">我的知乎</a></li>
+                    
+                        <li><a href="http://mp.weixin.qq.com/mp/getmasssendmsg?__biz=MzU0MDUxMTMxMQ==#wechat_webview_type=1&amp;wechat_redirect" target="_blank">我的微信公众号</a></li>
+                    
+                </ul>
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'hover',
+          placement: 'left',
+          icon: 'ℬ'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+
+    
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+          tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+            processEscapes: true
+          }
+        });
+      </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+            tex2jax: {
+              skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+            }
+          });
+      </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+              var all = MathJax.Hub.getAllJax(), i;
+              for(i=0; i < all.length; i += 1) {
+                  all[i].SourceElement().parentNode.className += ' has-jax';
+              }
+          });
+      </script>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; StarKing 2020 
+                    <br>
+                     Remember me: <a href="http://sengwong.top">StarKing</a> 
+                    <span style="display: inline-block; margin: 0 5px;">
+                        <i class="fa fa-heart"></i>
+                    </span>   
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://sengwong.top/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+<script>
+    // dynamic User by Hux
+    var _gaId = 'UA-XXXXXXXX-X';
+    var _gaDomain = 'yoursite';
+
+    // Originial
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
+
+
+
+
+<!-- Baidu Tongji -->
+
+
+
+
+
+
+	<a id="rocket" href="#top" class=""></a>
+	<script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+    <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
+<!-- Image to hack wechat -->
+<img src="http://sengwong.top/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>

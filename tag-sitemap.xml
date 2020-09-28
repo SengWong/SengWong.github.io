@@ -2,15 +2,36 @@
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
     <url>
-        <loc>http://sengwong.top/tags/Hexo/</loc>
-        <lastmod>2020-09-26T09:09:47.361Z</lastmod>
+        <loc>http://sengwong.top/tags/%E7%A7%91%E7%A0%94%E4%BC%9A%E8%AE%AE/</loc>
+        <lastmod>2020-09-27T08:55:29.171Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://sengwong.top/tags/Blog/</loc>
-        <lastmod>2020-09-26T09:09:47.361Z</lastmod>
+        <loc>http://sengwong.top/tags/%E7%95%99%E5%AD%A6%E7%94%B3%E8%AF%B7/</loc>
+        <lastmod>2020-09-27T09:19:48.980Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://sengwong.top/tags/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/</loc>
+        <lastmod>2020-09-27T09:29:03.576Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://sengwong.top/tags/%E7%A7%91%E7%A0%94%E8%AE%B0%E5%BD%95/</loc>
+        <lastmod>2020-09-27T09:35:14.195Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://sengwong.top/tags/%E8%A1%8C%E6%98%9F%E7%A7%91%E5%AD%A6/</loc>
+        <lastmod>2020-09-28T06:10:59.683Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content>
+    <meta name="keyword" content>
+    <link rel="shortcut icon" href="/img/ironman-draw.png">
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <title>
+        
+          二体问题 - StarKing
+        
+    </title>
+
+    <link rel="canonical" href="http://sengwong.top/2020/09/27/The-problem-of-two-bodies/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS --> 
+    <link rel="stylesheet" href="/css/beantech.min.css">
+    
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css">
+
+    <link rel="stylesheet" href="/css/widget.css">
+
+    <link rel="stylesheet" href="/css/rocket.css">
+
+    <link rel="stylesheet" href="/css/signature.css">
+
+    <link rel="stylesheet" href="/css/toc.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+	<!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        
+            background-image: url('twobodies.jpg')
+            /*post*/
+        
+    }
+    
+    #signature{
+        background-image: url('/img/signature/signature.png');
+    }
+    
+</style>
+
+<header class="intro-header" >
+    <!-- Signature -->
+    <div id="signature">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                
+                    <div class="post-heading">
+                        <div class="tags">
+                            
+                              <a class="tag" href="/tags/#行星科学" title="行星科学">行星科学</a>
+                            
+                        </div>
+                        <h1>二体问题</h1>
+                        <h2 class="subheading"></h2>
+                        <span class="meta">
+                            Posted by StarKing on
+                            2020-09-27
+                        </span>
+                    </div>
+                
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+	
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">StarKing</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/Publication/">论文发表</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/Research-Interests/">研究兴趣</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">关于我</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archive/">归档</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">标签</a>
+                        </li>
+                        
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    <!-- Modify by Yu-Hsuan Yen -->
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <p>宇宙中任何物体都受其他物体都引力吸引. 但在行星科学的研究领域中，我们研究一个物体的运行轨迹时，可以初略考虑这个物体仅受到另一个物体的引力. 此时，研究该物体的轨道的问题，可以称之为二体问题.</p>
+<h2><span id="行星运行的开普勒定律">行星运行的开普勒定律</span></h2>
+<p>开普勒通过仔细分析观测到的行星轨迹数据，得出了关于行星运行的三大定律：</p>
+<ul>
+<li>行星围绕太阳运行的轨道为椭圆，且太阳是位于该椭圆的一个焦点上. 若把极坐标的极轴取作太阳向行星近日点方向上，则该椭圆的表达式为：<br>
+$$<br>
+r=\frac{a(1-e^{2})}{1+e\cos f}<br>
+$$</li>
+</ul>
+<p>其中，$r$为行星到太阳的距离，$a$为椭圆的半长轴, $e=\sqrt{1-\frac{b^{2}}{a^{2}}}$为椭圆的离心率, $b$为椭圆的半短轴, $f=\theta-\varpi$为真近点角, $\theta$为极角，$\varpi$为近点角距.</p>
+<p><img src="https://static01.imgkr.com/temp/673311c7d49942398f642edd9282f90f.jpg" alt><center>椭圆轨道示意图</center></p>
+<ul>
+<li>行星向径在相等时间内扫过的面积相等：<br>
+$$<br>
+\frac{dA}{dt}=\frac{1}{2}h=\frac{\pi a^{2} \sqrt{1-e^{2}}}{T}<br>
+$$</li>
+</ul>
+<p>其中$A$为扫过的面积, $h=r^{2}\dot \theta =\frac{2\pi a^{2} \sqrt{1-e^{2}}}{T}$为一常数, $T$为周期.</p>
+<ul>
+<li>行星绕太阳运动的周期平方与轨道椭圆半长径的立方成正比：<br>
+$$<br>
+T^{2}=ka^{3}<br>
+$$</li>
+</ul>
+<p>其中，$k$是一个与行星无关的比例常数.</p>
+<h2><span id="由开普勒定律推导出万有引力定律">由开普勒定律推导出万有引力定律</span></h2>
+<p>在极坐标中，加速度可分解为径向和切向分量：<br>
+$$<br>
+\textbf{a}=a_{r}\textbf{e}<em>{r}+a</em>{\theta}\textbf{e}_{\theta}<br>
+$$</p>
+<p>其中$a_{r}=\ddot{r}-r\ddot{\theta}^{2}$, $a_{\theta}=\frac{1}{r}\frac{d}{dt}\left(r^{2}\ddot{\theta}\right)$.</p>
+<p>根据开普勒第二定律，$h=r^{2}\dot{\theta}$为常数, 故$a_{\theta}=0$.</p>
+<p>故加速度为径向，行星所受的力$\textbf{F}$为有心力:<br>
+$$<br>
+\textbf{F}=ma_{r}\textbf{e}<em>{r}=m\left(\ddot{r}-r\dot{\theta}^{2}\right)\textbf{e}</em>{r}<br>
+$$</p>
+<p>根据开普勒第二定律，有$\dot{\theta}=\frac{h}{r^{2}}$, 所以：<br>
+$$<br>
+\ddot{r}-r\dot{\theta}^{2}=\ddot{r}-\frac{h^{2}}{r^{3}}<br>
+$$</p>
+<p>而根据开普勒第一定律，有：</p>
+<p>$$<br>
+\frac{dr}{d\theta}=\frac{ae\left(1-e^{2}\right)\sin f}{\left(1+e\cos f\right)^{2}}<br>
+$$</p>
+<p>$$<br>
+\frac{d^{2}r}{d\theta^{2}}=ae\left(1-e^{2}\right)\left[\frac{\cos f}{\left(1+e\cos f\right)^{2}}+\frac{2e\sin^{2} f}{\left(1+e\cos f\right)^{3}}\right]<br>
+$$</p>
+<p>而：</p>
+<p>$$<br>
+\ddot{r}=\frac{d\dot{r}}{dt}=\frac{d}{d\theta}\left(\dot{\theta}\frac{dr}{d\theta}\right)\dot{\theta}=\frac{h^{2}}{r^{4}}\left[\frac{d^{2}r}{d\theta^{2}}-\frac{2}{r}\left(\frac{dr}{d\theta}\right)^{2}\right]<br>
+$$</p>
+<p>综合上述各式，得：<br>
+\begin{equation}<br>
+\textbf{F}=-\frac{mh^{2}}{a\left(1-e^{2}\right)}\frac{1}{r^{2}} \textbf{e}_ {r}=-\frac{m\mu}{r^{2}}\textbf{e}_{r}<br>
+\end{equation}</p>
+<p>其中,$\mu=\frac{h^{2}}{a\left(1-e^{2}\right)}=\frac{4\pi^{2}a^{3}}{T^{2}}$.</p>
+<p>根据开普勒第三定律，$\mu=\frac{4\pi^{2}a^{3}}{T^{2}}=\frac{4\pi^{2}}{k}$为一常数.</p>
+<p>不妨将$\mu$写成$\mu=GM$, 其中$G$为引力常数，$M$为太阳质量，则力$\textbf{F}$可以表示为：<br>
+$$<br>
+\textbf{F}=-G\frac{Mm}{r^{2}}\textbf{e}_{r}<br>
+$$</p>
+<p>而这正是牛顿的万有引力表达式.</p>
+<h2><span id="由万有引力定律推导开普勒定律">由万有引力定律推导开普勒定律</span></h2>
+<p>考虑两个物体在相互之间的万有引力下的运动. 如下图，坐标原点选为点$O$, 两物体的质量为$m_{i}$, 各自离原点$O$的位移为$\textbf{r}_{i}, i=1,2$.</p>
+<p><img src="https://static01.imgkr.com/temp/73b21fbffacd4822b678c3af2a9c5fff.png" alt> <center>二体运动示意图</center></p>
+<p>则根据引力定律，有：<br>
+$$<br>
+m_{1}\ddot{\textbf{r}}<em>{1}=\textbf{F}</em>{1}=+\frac{Gm_{1}m_{2}}{r^{3}}\textbf{r}<br>
+$$</p>
+<p>$$<br>
+m_{2}\ddot{\textbf{r}}<em>{2}=\textbf{F}</em>{2}=-\frac{Gm_{1}m_{2}}{r^{3}}\textbf{r}<br>
+$$</p>
+<p>其中,$\textbf{r}=\textbf{r}<em>{2}-\textbf{r}</em>{1}$.</p>
+<p>上述两式相减, 得到相对运动方程：<br>
+$$<br>
+\ddot{\textbf{r}}+\mu\frac{\textbf{r}}{r^{3}}=0<br>
+$$</p>
+<p>其中$\mu=G(m_{1}+m_{2})$.</p>
+<p>在上述对相对运动方程两边与作向量叉积, 得到：</p>
+<p>$$<br>
+\textbf{r}\times \left(\ddot{\textbf{r}}+\mu\frac{\textbf{r}}{r^{3}}\right)=\textbf{r}\times\ddot{\textbf{r}}+\frac{\mu}{r^{3}}\left(\textbf{r}\times\textbf{r}\right)=\textbf{r}\times\ddot{\textbf{r}}=0<br>
+$$</p>
+<p>即：<br>
+$$<br>
+\frac{d}{dt}\left(\textbf{r}\times\dot{\textbf{r}}\right)=\textbf{r}\times\ddot{\textbf{r}}=0<br>
+$$<br>
+故$\textbf{r}\times\dot{\textbf{r}}=\textbf{h}$, 其中$\textbf{h}$为常向量.</p>
+<p>可以看到，常向量$\textbf{h}=\textbf{r}\times\dot{\textbf{r}}$定义了二体问题中的不变平面，这两个物体运行的轨道就位于这个平面内. $h=|\textbf{h}|$为轨道相对运动的角动量. 故角动量守恒.</p>
+<p>由于运动的轨道是处于这个平面内，故可以利用二维平面的极坐标来具体分析轨道. 定义极坐标：</p>
+<p>$$<br>
+\textbf{r}=r\textbf{e}_ {r},  \dot{\textbf{r}}=\dot{r}\textbf{e}_ {r}+r\dot{\theta}\textbf{e}_ {\theta}, \ddot{\textbf{r}}=\left(\ddot{r}-r\dot{\theta}^{2}\right)\textbf{e}_ {r}+\left[\frac{1}{r}\frac{d}{dt}\left(r^{2}\dot{\theta}\right) \right]\textbf{e}_{\theta}<br>
+$$</p>
+<p>此时:</p>
+<p>$$<br>
+\textbf{h}=\textbf{r}\times\dot{\textbf{r}}=\begin{vmatrix} \textbf{e}_ {r} &amp; \textbf{e}_ {\theta} &amp; \textbf{e}<em>{z} \<br>
+r &amp; 0 &amp; 0 \ \dot{r} &amp; r\dot{\theta} &amp; 0\end{vmatrix}=r^{2}\dot{\theta}\textbf{e}</em>{z}<br>
+$$</p>
+<p>故角动量$h=|\textbf{h}|=r^{2}\dot{\theta}$.</p>
+<p>则向径扫过的面积速度为$\frac{dA}{dt}=\frac{1}{2}r^{2}\frac{d\theta}{dt}=\frac{1}{2}h$, 这就是开普勒第二定律.</p>
+<p>若在相对运动方程的两边对取点积, 则：</p>
+<p>$$<br>
+\dot{\textbf{r}}\cdot\left(\ddot{\textbf{r}}+\mu\frac{\textbf{r}}{r^{3}}\right)=\dot{\textbf{r}}\cdot \ddot{\textbf{r}}+\frac{\mu}{r^{3}}\dot{\textbf{r}}\cdot\textbf{r}=\dot{\textbf{r}}\cdot \ddot{\textbf{r}}+\frac{\mu}{r^{2}}\dot{r}=0<br>
+$$</p>
+<p>对上式积分,得：<br>
+$$<br>
+\frac{1}{2}\dot{\textbf{r}}\cdot \dot{\textbf{r}}-\frac{\mu}{r}=\frac{1}{2}v^{2}-\frac{\mu}{r}=E<br>
+$$</p>
+<p>此式成为活力积分, 其物理含义为能量守恒.</p>
+<p>将$\ddot{\textbf{r}}=\left(\ddot{r}-r\dot{\theta}^{2}\right)\textbf{e}_ {r}+\left[\frac{1}{r}\frac{d}{dt}\left(r^{2}\dot{\theta}\right) \right]\textbf{e}_{\theta}$代入相对运动方程，得到：<br>
+$$<br>
+\ddot{r}-r\dot{\theta}^{2}=-\frac{\mu}{r^{2}}<br>
+$$</p>
+<p>将：</p>
+<p>$$<br>
+\ddot{r}=\frac{d\dot{r}}{dt}=\frac{d}{d\theta}\left(\dot{\theta}\frac{dr}{d\theta}\right)\dot{\theta}=\frac{h^{2}}{r^{4}}\left[\frac{d^{2}r}{d\theta^{2}}-\frac{2}{r}\left(\frac{dr}{d\theta}\right)^{2} \right]<br>
+$$</p>
+<p>$$<br>
+h=r^{2}\dot{\theta}<br>
+$$</p>
+<p>代入上式，得到关于$r$的二阶常微分方程：</p>
+<p>$$<br>
+\frac{d^{2}r}{d\theta^{2}}-\frac{2}{r}\left(\frac{dr}{d\theta}\right)^{2}=r-\frac{\mu}{h^{2}}r^{2}<br>
+$$</p>
+<p>作代换$u=\frac{1}{r}$，这样可以将一阶微分项消除，得到：<br>
+$$<br>
+\frac{d^{2}u}{d\theta^{2}}+u=\frac{\mu}{h^{2}}<br>
+$$</p>
+<p>该微分方程的解为：<br>
+$$<br>
+u=\frac{\mu}{h^{2}}\left[1+e\cos(\theta-\varpi)\right]<br>
+$$</p>
+<p>即得到$r$的表达式：<br>
+$$<br>
+r=\frac{p}{1+e\cos(\theta-\varpi)}<br>
+$$</p>
+<p>这个方程表示的是圆锥曲线,其中$p=\frac{h^{2}}{\mu}$为圆锥曲线的通径,$a$为半主径, $e$为偏心率. 根据偏心率的大小可以将圆锥曲线分为三类：</p>
+<ol>
+<li>若$0&lt; e &lt;1$, 则轨道为椭圆,$a&gt;0$;</li>
+<li>若$e=1$, 则轨道为抛物线,$a=\infty$;</li>
+<li>若$e&gt;1$, 则轨道为双曲线,$a&lt;0$.</li>
+</ol>
+<h2><span id="椭圆轨道">椭圆轨道</span></h2>
+<p>若轨道为椭圆，这就是开普勒第一定律. 此时在一个周期内的面积速度为：</p>
+<p>$$<br>
+\frac{A}{T}=\frac{\pi a^{2}\sqrt{1-e^{2}}}{T}=\frac{1}{2}h=\frac{1}{2}\sqrt{\mu a (1-e^{2})}<br>
+$$</p>
+<p>根据上式，得：<br>
+$$<br>
+\frac{4\pi^{2}a^{3}}{T^{2}}=\mu=G(m_{1}+m_{2})<br>
+$$</p>
+<p>此为开普勒第三定律.</p>
+<p>若$r$对时间求微分，得：</p>
+<p>$$<br>
+\frac{dr}{dt}=\frac{dr}{d\theta}\frac{d\theta}{dt}=\dot{\theta}\frac{dr}{d\theta}=\frac{h}{r^{2}}\frac{r^{2}}{p^{2}}pe\sin(\theta-\varpi)=\frac{he}{p}\sin(\theta-\varpi)<br>
+$$</p>
+<p>$$<br>
+=\frac{h}{p}\sqrt{e^{2}-e^{2}\cos^{2}(\theta-\varpi)}=\frac{1}{r}\sqrt{\frac{\mu}{a}}\sqrt{a^{2}e^{2}-\left(r-a\right)^{2}}<br>
+$$</p>
+<p>设$n=\frac{2\pi}{T}$为行星的平均角速度，则根据开普勒第三定律，有：<br>
+$$<br>
+n=\frac{2\pi}{T}=\sqrt{\mu}a^{-\frac{3}{2}}<br>
+$$</p>
+<p>则有：<br>
+$$<br>
+ndt=\frac{rdr}{a\sqrt{a^{2}e^{2}-\left(r-a\right)^{2}}}<br>
+$$</p>
+<p>令$r-a=-ae\cos\xi$, 则上式化为：<br>
+$$<br>
+ndt=(1-e\cos\xi)d\xi<br>
+$$</p>
+<p>积分，并选择时间起点使得积分常数为$0$,则有：</p>
+<p>$$<br>
+r=a(1-e\cos\xi), t=\frac{1}{n}(\xi-e\sin\xi)<br>
+$$</p>
+<p>上述关于时间$t$的表达式称为椭圆运动的开普勒方程,其中$\xi$为偏近点角.</p>
+<p>若消去参数, 则得到$r$关于$t$的表达式：</p>
+<p>$$<br>
+t=\frac{1}{n}  arccos \left[ \frac{1}{e}\left(1-<br>
+\frac{r}{a}\right) \right]-\frac{1}{n} \sqrt{e^{2}-\left(1-<br>
+\frac{r}{a}\right)^{2}}<br>
+$$</p>
+<p>下图给出地球轨道的$t-r$图, 时间起点选在近日点.</p>
+<p><img src="https://static01.imgkr.com/temp/31525868fcea4b3d9214619417e482d9.jpg" alt><center>地球轨道的向径随时间变化的示意图</center></p>
+<p>易知$v^{2}=v_{r}^{2}+v_{\theta}^{2}$, 而：</p>
+<p>$$<br>
+v_{r}^{2}=\left(\frac{dr}{dt}\right)^{2}=\frac{\mu}{ar^{2}}\left[a^{2}e^{2}-(r-a)^{2}\right]=\mu\left(\frac{2}{r}-\frac{1}{a}\right)-\frac{\mu a}{r^{2}}(1-e^{2})<br>
+$$</p>
+<p>$$<br>
+v_{\theta}^{2}=r^{2}\dot{\theta}^{2}=\frac{\mu a}{r^{2}}(1-e^{2})<br>
+$$</p>
+<p>故：<br>
+$$<br>
+v^{2}=\mu\left(\frac{2}{r}-\frac{1}{a}\right)<br>
+$$</p>
+<p>若$a=r=R_{E}$,$\mu=GM_{E}$,则得到第一宇宙速度：<br>
+$$<br>
+v_{1}=\sqrt{\frac{GM_{E}}{R_{E}}}<br>
+$$</p>
+<p>其中,$R_{E},M_{E}$为地球半径和质量.</p>
+<p>对于椭圆轨道,$a&gt;0$, 故速度$v&lt;\sqrt{\frac{2\mu}{r}}$.</p>
+<p>下图给出地球在一个周期内运行时的速度分布$(t-v)$图, 时间起点选在近日点.</p>
+<p><img src="https://static01.imgkr.com/temp/d92eb0dcd5524b48833a13f1fc8112a9.jpg" alt><center>地球在一年内公转速度分布图</center></p>
+<p>可见, 在近日点时，速度有最大值$v_{max}=30.44 km/s$, 在远日点时，速度有最小值$v_{min}=29.25 km/s$.</p>
+<h2><span id="抛物线轨道">抛物线轨道</span></h2>
+<p>若轨道为抛物线, 则$e=1$, 此时轨道方程为：</p>
+<p>$$<br>
+r=\frac{p}{1+\cos{f}}=\frac{p}{2\cos^{2}{\frac{f}{2}}}=\frac{p}{2}\sec^{2}{f}<br>
+$$</p>
+<p>其中$p$为通径, $f=\theta-\varpi$, $\varpi$为近日点极角.</p>
+<p><img src="https://static01.imgkr.com/temp/4609248c32fb486f88eb8afdc1370590.jpg" alt><center>抛物线轨道示意图</center></p>
+<p>能量积分为$h=\sqrt{\mu p}=r^{2}\dot{f}$. 故$\dot{f}=\frac{df}{dt}=r^{-2}\sqrt{\mu p}$, 得：</p>
+<p>$$<br>
+\sqrt{\mu p}dt=r^{2}df=\frac{p^{2}}{4}\sec^{4}{\frac{f}{4}}df<br>
+$$</p>
+<p>令$\bar{n}=\sqrt{\mu}p^{-\frac{3}{2}}$为角频率, 则：<br>
+$$<br>
+4\bar{n}dt=\sec^{4}{\frac{f}{2}}df<br>
+$$</p>
+<p>积分,得：</p>
+<p>$$<br>
+2\bar{n}(t-\tau)=\int{\frac{1}{2}\sec^{4}{\frac{f}{2}}}df=\int{\frac{d\left(\frac{f}{2}\right)}{\cos^{4}{\frac{f}{2}}}}=\tan{\frac{f}{2}}+\frac{1}{3}\tan^{3}{\frac{f}{2}}<br>
+$$</p>
+<p>此为抛物线轨道的开普勒方程.</p>
+<p>向径与时间的参数方程为：</p>
+<p>$$<br>
+t=\frac{1}{2\bar{n}}\left(\tan{\frac{f}{2}}+\frac{1}{3}\tan^{3}{\frac{f}{2}}\right)<br>
+$$</p>
+<p>由上可知，当$f$趋近$\pi$时,$\tan^{2}{\frac{f}{2}}\gg 1$,$\tan^{3}{\frac{f}{2}}\gg \tan{\frac{f}{2}}$. 故$r\sim \tan^{2}{\frac{f}{2}}$,$t\sim \tan^{3}{\frac{f}{2}}$, 故$r\sim t^{\frac{2}{3}}$.</p>
+<p><img src="https://static01.imgkr.com/temp/c14143c407ff4995866984016fd5d570.jpg" alt><center>抛物线轨道向径和的关系</center></p>
+<p>上图中, 黑色的实线表示$t-r$关系, 红色的虚线表示$$r=t^{\frac{2}{3}}.</p>
+<p>速度$v^{2}=v_{r}^{2}+v_{f}^{2}$, 而：</p>
+<p>$$<br>
+\frac{dr}{dt}=\dot{f}\frac{dr}{df}=-\sqrt{\frac{\mu}{p}}\sin{f}<br>
+$$</p>
+<p>故：</p>
+<p>$$<br>
+v_{r}^{2}=\left(\frac{dr}{dt}\right)^{2}=\frac{\mu}{p}\sin^{2}{f}=\frac{2\mu}{r}-\frac{\mu p}{r^{2}}<br>
+$$</p>
+<p>而：<br>
+$$<br>
+v_{f}^{2}=r^{2}\dot{f}^{2}=\frac{\mu p}{r^{2}}<br>
+$$</p>
+<p>所以：<br>
+$$<br>
+v^{2}=v_{r}^{2}+v_{f}^{2}=\frac{2\mu}{r}<br>
+$$</p>
+<p>即：<br>
+$$<br>
+v=\sqrt{\frac{2\mu}{r}}<br>
+$$</p>
+<p>若$r=R_{E}$,$\mu=GM_{E}$, $R_{E}, M_{E}$分别为地球的半径和地球的质量，则得到第二宇宙速度的表达式：<br>
+$$<br>
+v_{2}=\sqrt{\frac{2GM_{E}}{R_{E}}}<br>
+$$</p>
+<p>抛物线轨道还有一个关于行星在两时刻的向径和弦之间的关系.</p>
+<p>不妨设按抛物线轨道运行的行星在时刻$t_{1}, t_{2}$分别位于$P_{1},P_{2}$两点, 坐标分别为$(r_{1},f_{1}), (r_{2}, f_{2})$. 则有:</p>
+<p>$$<br>
+t_{1}=\frac{1}{2\bar{n}}\left(\tan{\frac{f_{1}}{2}}+\frac{1}{3}\tan^{3}{\frac{f_{1}}{2}}\right)<br>
+$$</p>
+<p>$$<br>
+t_{2}=\frac{1}{2\bar{n}}\left(\tan{\frac{f_{2}}{2}}+\frac{1}{3}\tan^{3}{\frac{f_{2}}{2}}\right)<br>
+$$</p>
+<p>相减, 得:</p>
+<p>$$<br>
+t_{2}-t_{1}=\frac{1}{2\bar{n}}\left[\left(\tan{\frac{f_{2}}{2}}-\tan{\frac{f_{1}}{2}}\right)+\frac{1}{3}\left(\tan^{3}{\frac{f_{2}}{2}}-\tan^{3}{\frac{f_{1}}{2}}\right)\right]<br>
+$$</p>
+<p>$$<br>
+=\frac{1}{6\bar{n}}\left(\tan{\frac{f_{2}}{2}}-\tan{\frac{f_{1}}{2}}\right)\left[\left(\tan{\frac{f_{2}}{2}}-\tan{\frac{f_{1}}{2}}\right)^{2}+3\left(1+\tan{\frac{f_{1}}{2}}\tan{\frac{f_{2}}{2}}\right)\right]<br>
+$$</p>
+<p>根据余弦定理, 之间的距离为:</p>
+<p>$$<br>
+s^{2}=r_{1}^{2}+r_{2}^{2}-2r_{1}r_{2}\cos{(f_{2}-f_{1})}<br>
+$$</p>
+<p>得：</p>
+<p>$$<br>
+2\sqrt{r_{1}r_{2}}\cos{\frac{f_{2}-f_{1}}{2}}=\pm\sqrt{(r_{1}+r_{2}+s)(r_{1}+r_{2}-s)}<br>
+$$</p>
+<p>考虑到$r_{i}=\frac{p}{2}\sec^{2}{\frac{f_{i}}{2}}, i=1,2$, 则：</p>
+<p>$$<br>
+2\sqrt{r_{1}r_{2}}\cos{\frac{f_{2}-f_{1}}{2}}=\frac{p}{\cos{\frac{f_{1}}{2}}\cos{\frac{f_{2}}{2}}}\left(\cos{\frac{f_{1}}{2}}\cos{\frac{f_{2}}{2}}+\sin{\frac{f_{1}}{2}}\sin{\frac{f_{2}}{2}}\right)<br>
+$$</p>
+<p>故：</p>
+<p>$$<br>
+1+\tan{\frac{f_{1}}{2}}\tan{\frac{f_{2}}{2}}=\pm\frac{1}{p}\sqrt{(r_{1}+r_{2}+s)(r_{1}+r_{2}-s)}<br>
+$$</p>
+<p>而：</p>
+<p>$$<br>
+r_{1}+r_{2}=\frac{p}{2}\left(\sec^{2}{\frac{f_{1}}{2}}+\sec^{2}{\frac{f_{2}}{2}}\right)=\frac{p}{2}\left(2+\tan^{2}{\frac{f_{1}}{2}}+\tan^{2}{\frac{f_{2}}{2}}\right)<br>
+$$</p>
+<p>故：</p>
+<p>$$<br>
+\tan^{2}{\frac{f_{1}}{2}}+\tan^{2}{\frac{f_{2}}{2}}=\frac{2}{p}(r_{1}+r_{2})-2<br>
+$$</p>
+<p>从而：</p>
+<p>$$<br>
+\left(\tan{\frac{f_{2}}{2}}-\tan{\frac{f_{1}}{2}}\right)^{2}=\tan^{2}{\frac{f_{1}}{2}}+\tan^{2}{\frac{f_{2}}{2}}-2\tan{\frac{f_{1}}{2}}\tan{\frac{f_{2}}{2}}<br>
+$$</p>
+<p>$$<br>
+=\frac{2}{p}(r_{1}+r_{2})-2-2\left[\pm\frac{1}{p}\sqrt{(r_{1}+r_{2}+s)(r_{1}+r_{2}-s)}-1\right]<br>
+$$</p>
+<p>$$<br>
+=\frac{2}{p}\left[r_{1}+r_{2}\mp\sqrt{(r_{1}+r_{2}+s)(r_{1}+r_{2}-s)}\right]<br>
+$$</p>
+<p>从而：</p>
+<p>$$<br>
+6\sqrt{\mu}\left(t_{2}-t_{1}\right)=\left(r_{1}+r_{2}+s\right)^{\frac{3}{2}}\mp\left(r_{1}+r_{2}-s\right)^{\frac{3}{2}}<br>
+$$</p>
+<p>这就得到行星在两时刻的向径和弦之间的关系式, 该式是由欧拉发现的, 故称为欧拉方程.</p>
+<h2><span id="双曲线轨道">双曲线轨道</span></h2>
+<p>若偏心率$e&gt;1$, 则运动的轨道为双曲线. 此时轨道方程为:<br>
+$$<br>
+r=\frac{a(e^{2}-1)}{1+e\cos{f}}<br>
+$$</p>
+<p><img src="https://static01.imgkr.com/temp/76e87513f1ee4e28a701da0c6ac64fe8.jpg" alt><center>双曲线轨道示意图</center></p>
+<p>速度$v^{2}=v_{r}^{2}+v_{f}^{2}$, 其中：<br>
+$$<br>
+v_{f}^{2}=r^{2}{\dot{f}}^{2}=\frac{\mu a(e^{2}-1)}{r^{2}}<br>
+$$</p>
+<p>$$<br>
+v_{r}^{2}=\left(\frac{dr}{dt}\right)^{2}={\dot{f}}^{2}\left(\frac{dr}{df}\right)^{2}=\mu\left(\frac{2}{r}+\frac{1}{a}\right)-\frac{\mu a(e^{2}-1)}{r^{2}}<br>
+$$</p>
+<p>故：<br>
+$$<br>
+v^{2}=\mu\left(\frac{2}{r}+\frac{1}{a}\right)<br>
+$$</p>
+<p>可见, 双曲线轨道的速度$v&gt;\sqrt{\frac{2\mu}{r}}$.</p>
+<p>由上可知:</p>
+<p>$$<br>
+{\dot{r}}^{2}=v_{r}^{2}=\mu\left(\frac{2}{r}+\frac{1}{a}\right)-\frac{\mu a(e^{2}-1)}{r^{2}}=\frac{\mu}{ar^{2}}\left[(a+r)^{2}-a^{2}e^{2}\right]<br>
+$$</p>
+<p>定义平运动频率$\nu$:$\nu^{2}a^{3}=\mu$, 则：<br>
+$$<br>
+\nu dt=\frac{rdr}{a\sqrt{(a+r)^{2}-a^{2}e^{2}}}<br>
+$$</p>
+<p>令$r=a(e\cosh{\xi}-1)$, 则：<br>
+$$<br>
+\nu(t-\tau)=e\sinh{\xi}-\xi<br>
+$$</p>
+<p>此为双曲线轨道的开普勒方程.</p>
+
+                
+
+                <hr>
+                <!-- Pager -->
+                <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/2020/09/27/Introduction-of-three-bodies-problem/" data-toggle="tooltip" data-placement="top" title="三体问题简史">&larr; Previous Post</a>
+                        </li>
+                    
+                    
+                        <li class="next">
+                            <a href="/2020/09/27/The-Introduction-of-Planetary-Sciences/" data-toggle="tooltip" data-placement="top" title="行星科学简史">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                <!-- duoshuo Share start -->
+                
+                <!-- 多说 Share end-->
+
+                <!-- 多说评论框 start -->
+                
+                <!-- 多说评论框 end -->
+
+                <!-- disqus comment start -->
+                
+                <!-- disqus comment end -->
+            </div>
+            
+            <!-- Tabe of Content -->
+            <!-- Table of Contents -->
+
+    
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">行星运行的开普勒定律</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">由开普勒定律推导出万有引力定律</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">由万有引力定律推导开普勒定律</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">椭圆轨道</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">抛物线轨道</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">双曲线轨道</span></a></li></ol>
+        
+        </div>
+      </aside>
+    
+
+                
+            <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                          <a class="tag" href="/tags/#行星科学" title="行星科学">行星科学</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+
+                    
+                        <li><a href="https://www.zhihu.com/people/wang-xing-94-61" target="_blank">我的知乎</a></li>
+                    
+                        <li><a href="http://mp.weixin.qq.com/mp/getmasssendmsg?__biz=MzU0MDUxMTMxMQ==#wechat_webview_type=1&amp;wechat_redirect" target="_blank">我的微信公众号</a></li>
+                    
+                </ul>
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'hover',
+          placement: 'left',
+          icon: 'ℬ'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+
+    
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+          tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+            processEscapes: true
+          }
+        });
+      </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+            tex2jax: {
+              skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+            }
+          });
+      </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+              var all = MathJax.Hub.getAllJax(), i;
+              for(i=0; i < all.length; i += 1) {
+                  all[i].SourceElement().parentNode.className += ' has-jax';
+              }
+          });
+      </script>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; StarKing 2020 
+                    <br>
+                     Remember me: <a href="http://sengwong.top">StarKing</a> 
+                    <span style="display: inline-block; margin: 0 5px;">
+                        <i class="fa fa-heart"></i>
+                    </span>   
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://sengwong.top/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+<script>
+    // dynamic User by Hux
+    var _gaId = 'UA-XXXXXXXX-X';
+    var _gaDomain = 'yoursite';
+
+    // Originial
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
+
+
+
+
+<!-- Baidu Tongji -->
+
+
+
+
+
+
+	<a id="rocket" href="#top" class=""></a>
+	<script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+    <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
+<!-- Image to hack wechat -->
+<img src="http://sengwong.top/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>
