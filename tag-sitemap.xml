@@ -31,14 +31,21 @@
 
     <url>
         <loc>http://sengwong.top/tags/%E7%A7%91%E7%A0%94%E8%AE%B0%E5%BD%95/</loc>
-        <lastmod>2020-12-09T13:27:08.829Z</lastmod>
+        <lastmod>2021-03-19T13:47:11.257Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>http://sengwong.top/tags/%E7%BB%84%E4%BC%9A%E6%8A%A5%E5%91%8A/</loc>
-        <lastmod>2020-12-09T13:27:08.829Z</lastmod>
+        <lastmod>2021-03-19T13:47:11.257Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://sengwong.top/tags/%E7%94%9F%E6%B4%BB%E8%AE%B0%E5%BD%95/</loc>
+        <lastmod>2021-03-19T14:02:29.322Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
