@@ -144,7 +144,7 @@
 
                         
                         <li>
-                            <a href="/Publication/">论文发表</a>
+                            <a href="/about/">关于我</a>
                         </li>
                         
                     
@@ -158,7 +158,7 @@
 
                         
                         <li>
-                            <a href="/about/">关于我</a>
+                            <a href="/Publication/">论文发表</a>
                         </li>
                         
                     
@@ -228,127 +228,287 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <p>上一篇介绍了平面圆形限制性三体问题在旋转坐标系$O-xyz$中的运动方程:</p>
-<script type="math/tex; mode=display">
-\ddot{x}-2n\dot{y}=\frac{\partial \Omega}{\partial x}</script><script type="math/tex; mode=display">
-\ddot{y}+2n\dot{x}=\frac{\partial \Omega}{\partial y}</script><script type="math/tex; mode=display">
-\ddot{z}=\frac{\partial \Omega}{\partial z}</script><p>其中：</p>
-<script type="math/tex; mode=display">
-\Omega=\frac{1}{2}n^{2}\left(x^{2}+y^{2}\right)+\frac{1-\mu}{\sqrt{\left(x+\mu \right)^{2}+y^{2}+z^{2}}}+\frac{\mu}{\sqrt{\left(x-1+\mu \right)^{2}+y^{2}+z^{2}}}</script><p>为等效势, $\frac{1}{2}n^{2}\left(x^{2}+y^{2}\right)$为离心势.</p>
-<h1><span id="拉格朗日点">拉格朗日点</span></h1><p>令$v_{x}=\dot{x},v_{y}=\dot{y},v_{z}=\dot{z}$,则运动方程可以写为:</p>
-<script type="math/tex; mode=display">
-\dot{v}_ {x}=2v_{y}+\frac{\partial \Omega}{\partial x}</script><script type="math/tex; mode=display">
-\dot{v}_ {y}=2v_{x}+\frac{\partial \Omega}{\partial y}</script><script type="math/tex; mode=display">
-\dot{v}_ {z}=\frac{\partial \Omega}{\partial z}</script><p>若$m_ {3}$在惯性坐标系中某些点速度为$\textbf{v}=\textbf{0}$,则称这些点为拉格朗日点.此时$v_{x}=v_{y}=v_{z}=\dot{v}_ {x}=\dot{v}_ {y}=\dot{v}_{z}=0$, 根据上述运动方程, 则得到:</p>
-<script type="math/tex; mode=display">
-\frac{\partial \Omega}{\partial x}=\frac{\partial \Omega}{\partial y}=\frac{\partial \Omega}{\partial z}=0</script><p>此时该方程得到的解为旋转坐标系$O-xyz$中的不动点解, 在惯性坐标系中$O-\xi\eta\zeta$中称为平动点.</p>
-<p>将$\Omega$的表达式代入上述方程, 得:(已假定$n=1$)</p>
-<script type="math/tex; mode=display">
-\frac{\partial \Omega}{\partial x}=x-\frac{1-\mu}{\rho_{1}^{3}}(x+\mu)-\frac{\mu}{\rho_{2}^{3}}(x+\mu-1)=0</script><script type="math/tex; mode=display">
-\frac{\partial \Omega}{\partial y}=y\left(1-\frac{1-\mu}{\rho_{1}^{3}}-\frac{\mu}{\rho_{2}^{3}}\right)=0</script><script type="math/tex; mode=display">
-\frac{\partial \Omega}{\partial z}=-z\left(\frac{1-\mu}{\rho_{1}^{3}}+\frac{\mu}{\rho_{2}^{3}}\right)=0</script><p>其中</p>
-<script type="math/tex; mode=display">
-\rho_{1}(x,y,z)=\sqrt{\left(x+\mu \right)^{2}+y^{2}+z^{2}}</script><script type="math/tex; mode=display">
-\rho_{2}(x,y,z)=\sqrt{\left(x-1+\mu \right)^{2}+y^{2}+z^{2}}</script><p>根据$\frac{1-\mu}{\rho_{1}^{3}}+\frac{\mu}{\rho_{2}^{3}}&gt;0$可知$z=0$, 故不动点均处于$Oxy$平面上.</p>
+                <p>上一篇介绍了平面圆形限制性三体问题在旋转坐标系$O-xyz$中的运动方程:<br>
+$$<br>
+\ddot{x}-2n\dot{y}=\frac{\partial \Omega}{\partial x}<br>
+$$<br>
+$$<br>
+\ddot{y}+2n\dot{x}=\frac{\partial \Omega}{\partial y}<br>
+$$<br>
+$$<br>
+\ddot{z}=\frac{\partial \Omega}{\partial z}<br>
+$$<br>
+其中：<br>
+$$<br>
+\Omega=\frac{1}{2}n^{2}\left(x^{2}+y^{2}\right)+\frac{1-\mu}{\sqrt{\left(x+\mu \right)^{2}+y^{2}+z^{2}}}+\frac{\mu}{\sqrt{\left(x-1+\mu \right)^{2}+y^{2}+z^{2}}}<br>
+$$<br>
+为等效势, $\frac{1}{2}n^{2}\left(x^{2}+y^{2}\right)$为离心势.</p>
+<h1><span id="拉格朗日点">拉格朗日点</span></h1>
+<p>令$v_{x}=\dot{x},v_{y}=\dot{y},v_{z}=\dot{z}$,则运动方程可以写为:<br>
+$$<br>
+\dot{v}_ {x}=2v_{y}+\frac{\partial \Omega}{\partial x}<br>
+$$</p>
+<p>$$<br>
+\dot{v}_ {y}=2v_{x}+\frac{\partial \Omega}{\partial y}<br>
+$$</p>
+<p>$$<br>
+\dot{v}_ {z}=\frac{\partial \Omega}{\partial z}<br>
+$$</p>
+<p>若$m_ {3}$在惯性坐标系中某些点速度为$\textbf{v}=\textbf{0}$,则称这些点为拉格朗日点.此时$v_{x}=v_{y}=v_{z}=\dot{v}_ {x}=\dot{v}_ {y}=\dot{v}_{z}=0$, 根据上述运动方程, 则得到:<br>
+$$<br>
+\frac{\partial \Omega}{\partial x}=\frac{\partial \Omega}{\partial y}=\frac{\partial \Omega}{\partial z}=0<br>
+$$</p>
+<p>此时该方程得到的解为旋转坐标系$O-xyz$中的不动点解, 在惯性坐标系中$O-\xi\eta\zeta$中称为平动点.</p>
+<p>将$\Omega$的表达式代入上述方程, 得:(已假定$n=1$)<br>
+$$<br>
+\frac{\partial \Omega}{\partial x}=x-\frac{1-\mu}{\rho_{1}^{3}}(x+\mu)-\frac{\mu}{\rho_{2}^{3}}(x+\mu-1)=0<br>
+$$</p>
+<p>$$<br>
+\frac{\partial \Omega}{\partial y}=y\left(1-\frac{1-\mu}{\rho_{1}^{3}}-\frac{\mu}{\rho_{2}^{3}}\right)=0<br>
+$$</p>
+<p>$$<br>
+\frac{\partial \Omega}{\partial z}=-z\left(\frac{1-\mu}{\rho_{1}^{3}}+\frac{\mu}{\rho_{2}^{3}}\right)=0<br>
+$$<br>
+其中<br>
+$$<br>
+\rho_{1}(x,y,z)=\sqrt{\left(x+\mu \right)^{2}+y^{2}+z^{2}}<br>
+$$<br>
+$$<br>
+\rho_{2}(x,y,z)=\sqrt{\left(x-1+\mu \right)^{2}+y^{2}+z^{2}}<br>
+$$</p>
+<p>根据$\frac{1-\mu}{\rho_{1}^{3}}+\frac{\mu}{\rho_{2}^{3}}&gt;0$可知$z=0$, 故不动点均处于$Oxy$平面上.</p>
 <ol>
-<li>若$y=0$, 则$\rho_{1}(x,0,0)=|x+\mu|,\rho_{2}(x,0,0)=|x-1+\mu|$.则得到：<script type="math/tex; mode=display">
-x-\frac{1-\mu}{|x+\mu|^{3}}(x+\mu)-\frac{\mu}{|x-1+\mu|^{3}}(x+\mu-1)=0 \\</script>(a). 若$-\mu&lt; x&lt;1-\mu$, 此时不动点$x_{1}$在$m_{1},m_{2}$之间, 则:<script type="math/tex; mode=display">
-\rho_{1}=x_{1}+\mu,\rho_{2}=-x_{1}+1-\mu,\rho_{1}+\rho_{2}=1 \\</script>此时方程为：<script type="math/tex; mode=display">
-1-\mu-\rho_{2}-\frac{1-\mu}{\rho_{1}^{2}}+\frac{\mu}{\rho_{2}^{2}}=0 \\</script>整理,得：<script type="math/tex; mode=display">
-\left(\frac{\mu}{3}\right)^{\frac{1}{3}}=\rho_{2}\left(\frac{1-\rho_{2}+\frac{1}{3}\rho_{2}^{2}}{1-2\rho_{2}+\rho_{2}^{2}+2\rho_{2}^{3}-\rho_{2}^{4}}\right)^{\frac{1}{3}}=\alpha \\</script>泰勒展开：(其中$\rho_{2}\ll 1$)<script type="math/tex; mode=display">
-\frac{1}{1-2\rho_{2}+\rho_{2}^{2}+2\rho_{2}^{3}-\rho_{2}^{4}}=1+2\rho_{2}+3\rho_{2}^{2}+O\left(\rho_{2}^{3}\right) \\</script>则：<script type="math/tex; mode=display">
-\frac{1-\rho_{2}+\frac{1}{3}\rho_{2}^{2}}{1-2\rho_{2}+\rho_{2}^{2}+2\rho_{2}^{3}-\rho_{2}^{4}}=1+\rho_{2}+\frac{4}{3}\rho_{2}^{2}+O\left(\rho_{2}^{3}\right) \\</script>则:<script type="math/tex; mode=display">
-\alpha=\rho_{2}\left(1+\rho_{2}+\frac{4}{3}\rho_{2}^{2}+O\left(\rho_{2}^{3}\right)\right)^{\frac{1}{3}}=\rho_{2}+\frac{1}{3}\rho_{2}^{2}+\frac{1}{3}\rho_{2}^{3}+O\left(\rho_{2}^{4}\right) \\</script>根据<a href="https://mathworld.wolfram.com/SeriesReversion.html" target="_blank" rel="noopener">级数反演公式</a>,得：<script type="math/tex; mode=display">
-\rho_{2}=\alpha-\frac{1}{3}\alpha^{2}-\frac{1}{9}\alpha^{3}+O\left(\alpha^{4}\right) \\</script>故此时得到一个近似解:<script type="math/tex; mode=display">
-x_{1}=1-\mu-\left(\frac{\mu}{3}\right)^{\frac{1}{3}}+\frac{1}{3}\left(\frac{\mu}{3}\right)^{\frac{2}{3}}+\frac{1}{9}\left(\frac{\mu}{3}\right)^{\frac{3}{3}}+... \\</script>该解$x_{1}$称为拉格朗日$L_{1}$点;</li>
+<li>若$y=0$, 则$\rho_{1}(x,0,0)=|x+\mu|,\rho_{2}(x,0,0)=|x-1+\mu|$.则得到：<br>
+$$<br>
+x-\frac{1-\mu}{|x+\mu|^{3}}(x+\mu)-\frac{\mu}{|x-1+\mu|^{3}}(x+\mu-1)=0 \<br>
+$$<br>
+(a). 若$-\mu&lt; x&lt;1-\mu$, 此时不动点$x_{1}$在$m_{1},m_{2}$之间, 则:<br>
+$$<br>
+\rho_{1}=x_{1}+\mu,\rho_{2}=-x_{1}+1-\mu,\rho_{1}+\rho_{2}=1 \<br>
+$$<br>
+此时方程为：<br>
+$$<br>
+1-\mu-\rho_{2}-\frac{1-\mu}{\rho_{1}^{2}}+\frac{\mu}{\rho_{2}^{2}}=0 \<br>
+$$<br>
+整理,得：<br>
+$$<br>
+\left(\frac{\mu}{3}\right)^{\frac{1}{3}}=\rho_{2}\left(\frac{1-\rho_{2}+\frac{1}{3}\rho_{2}^{2}}{1-2\rho_{2}+\rho_{2}^{2}+2\rho_{2}^{3}-\rho_{2}^{4}}\right)^{\frac{1}{3}}=\alpha \<br>
+$$<br>
+泰勒展开：(其中$\rho_{2}\ll 1$)<br>
+$$<br>
+\frac{1}{1-2\rho_{2}+\rho_{2}^{2}+2\rho_{2}^{3}-\rho_{2}^{4}}=1+2\rho_{2}+3\rho_{2}^{2}+O\left(\rho_{2}^{3}\right) \<br>
+$$<br>
+则：<br>
+$$<br>
+\frac{1-\rho_{2}+\frac{1}{3}\rho_{2}^{2}}{1-2\rho_{2}+\rho_{2}^{2}+2\rho_{2}^{3}-\rho_{2}^{4}}=1+\rho_{2}+\frac{4}{3}\rho_{2}^{2}+O\left(\rho_{2}^{3}\right) \<br>
+$$<br>
+则:<br>
+$$<br>
+\alpha=\rho_{2}\left(1+\rho_{2}+\frac{4}{3}\rho_{2}^{2}+O\left(\rho_{2}^{3}\right)\right)^{\frac{1}{3}}=\rho_{2}+\frac{1}{3}\rho_{2}^{2}+\frac{1}{3}\rho_{2}^{3}+O\left(\rho_{2}^{4}\right) \<br>
+$$<br>
+根据<a href="https://mathworld.wolfram.com/SeriesReversion.html" target="_blank" rel="noopener">级数反演公式</a>,得：<br>
+$$<br>
+\rho_{2}=\alpha-\frac{1}{3}\alpha^{2}-\frac{1}{9}\alpha^{3}+O\left(\alpha^{4}\right) \<br>
+$$<br>
+故此时得到一个近似解:<br>
+$$<br>
+x_{1}=1-\mu-\left(\frac{\mu}{3}\right)^{\frac{1}{3}}+\frac{1}{3}\left(\frac{\mu}{3}\right)^{\frac{2}{3}}+\frac{1}{9}\left(\frac{\mu}{3}\right)^{\frac{3}{3}}+… \<br>
+$$<br>
+该解$x_{1}$称为拉格朗日$L_{1}$点;</li>
 </ol>
-<p>(b). 若$x&gt;1-\mu$, 此时不动点$x_{2}$在$m_{2}$的右边, 则：</p>
-<script type="math/tex; mode=display">
-\rho_{1}=x_{2}+\mu, \rho_{2}=x_{2}+\mu-1, \rho_{1}=1+\rho_{2} \\</script><p>此时方程为：</p>
-<script type="math/tex; mode=display">
-1-\mu+\rho_{2}-\frac{1-\mu}{\rho_{1}^{2}}-\frac{\mu}{\rho_{2}^{2}}=0 \\</script><p>整理,得：</p>
-<script type="math/tex; mode=display">
-\left(\frac{\mu}{3}\right)^{\frac{1}{3}}=\rho_{2}\left(\frac{1+\rho_{2}+\frac{1}{3}\rho_{2}^{2}}{1+2\rho_{2}+\rho_{2}^{2}+2\rho_{2}^{3}+\rho_{2}^{4}}\right)^{\frac{1}{3}}=\alpha \\</script><p>泰勒展开：(其中$\rho_{2}\ll 1$)</p>
-<script type="math/tex; mode=display">
-\frac{1}{1+2\rho_{2}+\rho_{2}^{2}+2\rho_{2}^{3}+\rho_{2}^{4}}=1-2\rho_{2}+3\rho_{2}^{2}+O\left(\rho_{2}^{3}\right) \\</script><p>则：</p>
-<script type="math/tex; mode=display">
-\frac{1+\rho_{2}+\frac{1}{3}\rho_{2}^{2}}{1+2\rho_{2}+\rho_{2}^{2}+2\rho_{2}^{3}+\rho_{2}^{4}}=1-\rho_{2}+\frac{4}{3}\rho_{2}^{2}+O\left(\rho_{2}^{3}\right) \\</script><p>则:</p>
-<script type="math/tex; mode=display">
-\alpha=\rho_{2}\left(1-\rho_{2}+\frac{4}{3}\rho_{2}^{2}+O\left(\rho_{2}^{3}\right)\right)^{\frac{1}{3}}=\rho_{2}-\frac{1}{3}\rho_{2}^{2}+\frac{1}{3}\rho_{2}^{3}+O\left(\rho_{2}^{4}\right) \\</script><p>则有：</p>
-<script type="math/tex; mode=display">
-\rho_{2}=\alpha+\frac{1}{3}\alpha^{2}-\frac{1}{9}\alpha^{3}+O\left(\alpha^{4}\right) \\</script><p>故此时得到一个近似解:</p>
-<script type="math/tex; mode=display">
-x_{2}=1-\mu+\left(\frac{\mu}{3}\right)^{\frac{1}{3}}+\frac{1}{3}\left(\frac{\mu}{3}\right)^{\frac{2}{3}}-\frac{1}{9}\left(\frac{\mu}{3}\right)^{\frac{3}{3}}+...</script><p>该解$x_{2}$称为拉格朗日$L_{2}$点;</p>
-<p>$(c)$.  若$x&lt;-\mu$, 此时不动点$x_{3}$在$m_{1}$左侧, 则:</p>
-<script type="math/tex; mode=display">
-\rho_{1}=-x_{3}-\mu, \rho_{2}=1-x_{3}-\mu, \rho_{1}=\rho_{2}-1 \\</script><p>此时方程为：</p>
-<script type="math/tex; mode=display">
-1-\mu-\rho_{2}+\frac{1-\mu}{(\rho_{2}-1)^{2}}+\frac{\mu}{\rho_{2}^{2}}=0 \\</script><p>不妨设$\rho_{2}-1=1-\beta, \beta\ll 1$, 则上述方程可以整理为：</p>
-<script type="math/tex; mode=display">
-\mu\left[1+\frac{1}{(1-\beta)^{2}}-\frac{1}{(2-\beta)^{2}} \right]=\frac{1}{(1-\beta)^{2}}-(1-\beta)</script><p>泰勒展开:</p>
-<script type="math/tex; mode=display">
-\frac{1}{(1-\beta)^{2}}=1+2\beta+3\beta^{2}+4\beta^{3}+O\left(\beta^{4}\right)</script><script type="math/tex; mode=display">
-\frac{1}{(2-\beta)^{2}}=\frac{1}{4}+\frac{1}{4}\beta+\frac{3}{16}\beta^{2}+O\left(\beta^{3}\right)</script><p>则：</p>
-<script type="math/tex; mode=display">
-\mu=\left[1+\frac{1}{(1-\beta)^{2}}-\frac{1}{(2-\beta)^{2}} \right]^{-1}\left[\frac{1}{(1-\beta)^{2}}-(1-\beta) \right]</script><script type="math/tex; mode=display">
-=\frac{12}{7}\beta\left(1+\beta+\frac{4}{3}\beta^{2}\right)\left(1-\beta-\frac{17}{28}\beta^{2}\right)+O\left(\beta^{6}\right)</script><script type="math/tex; mode=display">
-=\frac{12}{7}\left[\beta-\frac{23}{84}\beta^{3}-\frac{163}{84}\beta^{4}-\frac{68}{84}\beta^{5} \right]+O\left(\beta^{6}\right)</script><p>根据级数反演公式,得:</p>
-<script type="math/tex; mode=display">
-\beta=\frac{7}{12}\mu+\frac{1127}{20736}\mu^{3}+O\left(\mu^{4}\right) \\</script><p>则:</p>
-<script type="math/tex; mode=display">
-x_{3}=-1-\mu+\beta=-1-\frac{5}{12}\mu+\frac{1127}{20736}\mu^{3}+... \\</script><p>该解$x_{3}$称为拉格朗日$L_{3}$点.</p>
-<p>上述给出$L_{1},L_{2},L_{3}$的推导过程. 下图给出函数</p>
-<script type="math/tex; mode=display">
-f(x)=x-\frac{1-\mu}{|x+\mu|^{3}}(x+\mu)-\frac{\mu}{|x-1+\mu|^{3}}(x+\mu-1) \\</script><p>的图像,其中$\mu=0.01$. 可见该函数有三个零点,分别对应于三个拉格朗日点.</p>
+<p>(b). 若$x&gt;1-\mu$, 此时不动点$x_{2}$在$m_{2}$的右边, 则：<br>
+$$<br>
+\rho_{1}=x_{2}+\mu, \rho_{2}=x_{2}+\mu-1, \rho_{1}=1+\rho_{2} \<br>
+$$<br>
+此时方程为：<br>
+$$<br>
+1-\mu+\rho_{2}-\frac{1-\mu}{\rho_{1}^{2}}-\frac{\mu}{\rho_{2}^{2}}=0 \<br>
+$$<br>
+整理,得：<br>
+$$<br>
+\left(\frac{\mu}{3}\right)^{\frac{1}{3}}=\rho_{2}\left(\frac{1+\rho_{2}+\frac{1}{3}\rho_{2}^{2}}{1+2\rho_{2}+\rho_{2}^{2}+2\rho_{2}^{3}+\rho_{2}^{4}}\right)^{\frac{1}{3}}=\alpha \<br>
+$$<br>
+泰勒展开：(其中$\rho_{2}\ll 1$)<br>
+$$<br>
+\frac{1}{1+2\rho_{2}+\rho_{2}^{2}+2\rho_{2}^{3}+\rho_{2}^{4}}=1-2\rho_{2}+3\rho_{2}^{2}+O\left(\rho_{2}^{3}\right) \<br>
+$$<br>
+则：<br>
+$$<br>
+\frac{1+\rho_{2}+\frac{1}{3}\rho_{2}^{2}}{1+2\rho_{2}+\rho_{2}^{2}+2\rho_{2}^{3}+\rho_{2}^{4}}=1-\rho_{2}+\frac{4}{3}\rho_{2}^{2}+O\left(\rho_{2}^{3}\right) \<br>
+$$<br>
+则:<br>
+$$<br>
+\alpha=\rho_{2}\left(1-\rho_{2}+\frac{4}{3}\rho_{2}^{2}+O\left(\rho_{2}^{3}\right)\right)^{\frac{1}{3}}=\rho_{2}-\frac{1}{3}\rho_{2}^{2}+\frac{1}{3}\rho_{2}^{3}+O\left(\rho_{2}^{4}\right) \<br>
+$$<br>
+则有：<br>
+$$<br>
+\rho_{2}=\alpha+\frac{1}{3}\alpha^{2}-\frac{1}{9}\alpha^{3}+O\left(\alpha^{4}\right) \<br>
+$$<br>
+故此时得到一个近似解:<br>
+$$<br>
+x_{2}=1-\mu+\left(\frac{\mu}{3}\right)^{\frac{1}{3}}+\frac{1}{3}\left(\frac{\mu}{3}\right)^{\frac{2}{3}}-\frac{1}{9}\left(\frac{\mu}{3}\right)^{\frac{3}{3}}+…<br>
+$$<br>
+该解$x_{2}$称为拉格朗日$L_{2}$点;</p>
+<p>$©$.  若$x&lt;-\mu$, 此时不动点$x_{3}$在$m_{1}$左侧, 则:<br>
+$$<br>
+\rho_{1}=-x_{3}-\mu, \rho_{2}=1-x_{3}-\mu, \rho_{1}=\rho_{2}-1 \<br>
+$$<br>
+此时方程为：<br>
+$$<br>
+1-\mu-\rho_{2}+\frac{1-\mu}{(\rho_{2}-1)^{2}}+\frac{\mu}{\rho_{2}^{2}}=0 \<br>
+$$<br>
+不妨设$\rho_{2}-1=1-\beta, \beta\ll 1$, 则上述方程可以整理为：<br>
+$$<br>
+\mu\left[1+\frac{1}{(1-\beta)^{2}}-\frac{1}{(2-\beta)^{2}} \right]=\frac{1}{(1-\beta)^{2}}-(1-\beta)<br>
+$$</p>
+<p>泰勒展开:<br>
+$$<br>
+\frac{1}{(1-\beta)^{2}}=1+2\beta+3\beta^{2}+4\beta^{3}+O\left(\beta^{4}\right)<br>
+$$<br>
+$$<br>
+\frac{1}{(2-\beta)^{2}}=\frac{1}{4}+\frac{1}{4}\beta+\frac{3}{16}\beta^{2}+O\left(\beta^{3}\right)<br>
+$$<br>
+则：<br>
+$$<br>
+\mu=\left[1+\frac{1}{(1-\beta)^{2}}-\frac{1}{(2-\beta)^{2}} \right]^{-1}\left[\frac{1}{(1-\beta)^{2}}-(1-\beta) \right]<br>
+$$<br>
+$$<br>
+=\frac{12}{7}\beta\left(1+\beta+\frac{4}{3}\beta^{2}\right)\left(1-\beta-\frac{17}{28}\beta^{2}\right)+O\left(\beta^{6}\right)<br>
+$$<br>
+$$<br>
+=\frac{12}{7}\left[\beta-\frac{23}{84}\beta^{3}-\frac{163}{84}\beta^{4}-\frac{68}{84}\beta^{5} \right]+O\left(\beta^{6}\right)<br>
+$$</p>
+<p>根据级数反演公式,得:<br>
+$$<br>
+\beta=\frac{7}{12}\mu+\frac{1127}{20736}\mu^{3}+O\left(\mu^{4}\right) \<br>
+$$<br>
+则:<br>
+$$<br>
+x_{3}=-1-\mu+\beta=-1-\frac{5}{12}\mu+\frac{1127}{20736}\mu^{3}+… \<br>
+$$<br>
+该解$x_{3}$称为拉格朗日$L_{3}$点.</p>
+<p>上述给出$L_{1},L_{2},L_{3}$的推导过程. 下图给出函数<br>
+$$<br>
+f(x)=x-\frac{1-\mu}{|x+\mu|^{3}}(x+\mu)-\frac{\mu}{|x-1+\mu|^{3}}(x+\mu-1) \<br>
+$$<br>
+的图像,其中$\mu=0.01$. 可见该函数有三个零点,分别对应于三个拉格朗日点.</p>
 <p><img src="https://static01.imgkr.com/temp/ced645d74fe041129dccbb11125726e2.png" alt><center>$L_{1}, L_{2}, L_{3}$对应于$f(x)$的三个零点</center></p>
 <ol>
-<li>若$y\neq 0$, 则有:<script type="math/tex; mode=display">
-1-\frac{1-\mu}{\rho_{1}^{3}}-\frac{\mu}{\rho_{2}^{3}}=0 \\</script>而根据:<script type="math/tex; mode=display">
-\frac{\partial \Omega}{\partial x}=x-\frac{1-\mu}{\rho_{1}^{3}}(x+\mu)-\frac{\mu}{\rho_{2}^{3}}(x+\mu-1)=0 \\</script>得:<script type="math/tex; mode=display">
-\rho_{1}=\sqrt{\left(x+\mu \right)^{2}+y^{2}}=\rho_{2}=\sqrt{\left(x-1+\mu \right)^{2}+y^{2}} \\</script>解得:<script type="math/tex; mode=display">
-x=-\mu+\frac{1}{2}, y=\pm \frac{\sqrt{3}}{2} \\</script>该两点称为拉格朗日$L_{4},L_{5}$点,且与两个主天体$m_{1},m_{2}$形成等边三角形,故称为三角不动点.</li>
+<li>若$y\neq 0$, 则有:<br>
+$$<br>
+1-\frac{1-\mu}{\rho_{1}^{3}}-\frac{\mu}{\rho_{2}^{3}}=0 \<br>
+$$<br>
+而根据:<br>
+$$<br>
+\frac{\partial \Omega}{\partial x}=x-\frac{1-\mu}{\rho_{1}^{3}}(x+\mu)-\frac{\mu}{\rho_{2}^{3}}(x+\mu-1)=0 \<br>
+$$<br>
+得:<br>
+$$<br>
+\rho_{1}=\sqrt{\left(x+\mu \right)^{2}+y^{2}}=\rho_{2}=\sqrt{\left(x-1+\mu \right)^{2}+y^{2}} \<br>
+$$<br>
+解得:<br>
+$$<br>
+x=-\mu+\frac{1}{2}, y=\pm \frac{\sqrt{3}}{2} \<br>
+$$<br>
+该两点称为拉格朗日$L_{4},L_{5}$点,且与两个主天体$m_{1},m_{2}$形成等边三角形,故称为三角不动点.</li>
 </ol>
-<p>下图给出当$\mu=0.1$时,五个拉格朗日点的分布图.<br><img src="https://static01.imgkr.com/temp/8370279b1a6146ff9bd62aace6be01c6.png" alt><center>$\mu=0.1$时五个拉格朗日点的分布</center></p>
-<h1><span id="拉格朗日点的稳定性">拉格朗日点的稳定性</span></h1><p>上述根据计算给出五个拉格朗日点, 那么这五个点是否稳定呢？接下来就来考虑这个问题.</p>
-<p>设$(x_{0},y_{0})$为这五个拉格朗日点中任意一点的坐标. 考虑该点附近坐标为$(x,y)=(x_{0}+\delta x, y_{0}+\delta y)$的一点, 则在该点有:</p>
-<script type="math/tex; mode=display">
-\frac{\partial \Omega}{\partial x} \approx \frac{\partial^{2}\Omega}{\partial x^{2}}\delta x+\frac{\partial^{2}\Omega}{\partial x \partial y}\delta y</script><script type="math/tex; mode=display">
-\frac{\partial \Omega}{\partial y} \approx \frac{\partial^{2}\Omega}{\partial y^{2}}\delta y+\frac{\partial^{2}\Omega}{\partial x \partial y}\delta x</script><p>则该点的运动方程可以写为:</p>
-<script type="math/tex; mode=display">
-\frac{d^{2}\delta x}{dt^{2}}-2\frac{d \delta y}{dt}=\frac{\partial^{2}\Omega}{\partial x^{2}}\delta x+\frac{\partial^{2}\Omega}{\partial x \partial y}\delta y</script><script type="math/tex; mode=display">
-\frac{d^{2}\delta y}{dt^{2}}+2\frac{d \delta x}{dt}=\frac{\partial^{2}\Omega}{\partial y^{2}}\delta y+\frac{\partial^{2}\Omega}{\partial x \partial y}\delta x</script><ol>
-<li>若$(x_{0},y_{0})$为$L_{1},L_{2},L_{3}$中的某点, 则$y_{0}=0$. 此时：<script type="math/tex; mode=display">
-\frac{\partial^{2}\Omega}{\partial x^{2}}|_ {x=x_{0}}=1+2\gamma</script><script type="math/tex; mode=display">
-\frac{\partial^{2}\Omega}{\partial y^{2}}|_ {x=x_{0}}=1-\gamma</script><script type="math/tex; mode=display">
-\frac{\partial^{2}\Omega}{\partial x \partial y}|_ {x=x_{0}}=0</script>其中:<script type="math/tex; mode=display">
-\gamma=\frac{1-\mu}{\rho_{1}^{3}}+\frac{\mu}{\rho_{2}^{3}}</script>此时运动方程为:<script type="math/tex; mode=display">
-\frac{d^{2}\delta x}{dt^{2}}-2\frac{d \delta y}{dt}=(1+2\gamma)\delta x</script><script type="math/tex; mode=display">
-\frac{d^{2}\delta y}{dt^{2}}+2\frac{d \delta x}{dt}=(1-\gamma)\delta y</script>设置检测轨道:$\delta x=Ae^{\omega t},\delta y=Be^{\omega t}$,其中$A,B,\omega$均为常数.</li>
+<p>下图给出当$\mu=0.1$时,五个拉格朗日点的分布图.<br>
+<img src="https://static01.imgkr.com/temp/8370279b1a6146ff9bd62aace6be01c6.png" alt><center>$\mu=0.1$时五个拉格朗日点的分布</center></p>
+<h1><span id="拉格朗日点的稳定性">拉格朗日点的稳定性</span></h1>
+<p>上述根据计算给出五个拉格朗日点, 那么这五个点是否稳定呢？接下来就来考虑这个问题.</p>
+<p>设$(x_{0},y_{0})$为这五个拉格朗日点中任意一点的坐标. 考虑该点附近坐标为$(x,y)=(x_{0}+\delta x, y_{0}+\delta y)$的一点, 则在该点有:<br>
+$$<br>
+\frac{\partial \Omega}{\partial x} \approx \frac{\partial^{2}\Omega}{\partial x^{2}}\delta x+\frac{\partial^{2}\Omega}{\partial x \partial y}\delta y<br>
+$$<br>
+$$<br>
+\frac{\partial \Omega}{\partial y} \approx \frac{\partial^{2}\Omega}{\partial y^{2}}\delta y+\frac{\partial^{2}\Omega}{\partial x \partial y}\delta x<br>
+$$<br>
+则该点的运动方程可以写为:<br>
+$$<br>
+\frac{d^{2}\delta x}{dt^{2}}-2\frac{d \delta y}{dt}=\frac{\partial^{2}\Omega}{\partial x^{2}}\delta x+\frac{\partial^{2}\Omega}{\partial x \partial y}\delta y<br>
+$$<br>
+$$<br>
+\frac{d^{2}\delta y}{dt^{2}}+2\frac{d \delta x}{dt}=\frac{\partial^{2}\Omega}{\partial y^{2}}\delta y+\frac{\partial^{2}\Omega}{\partial x \partial y}\delta x<br>
+$$</p>
+<ol>
+<li>若$(x_{0},y_{0})$为$L_{1},L_{2},L_{3}$中的某点, 则$y_{0}=0$. 此时：<br>
+$$<br>
+\frac{\partial^{2}\Omega}{\partial x^{2}}|_ {x=x_{0}}=1+2\gamma<br>
+$$<br>
+$$<br>
+\frac{\partial^{2}\Omega}{\partial y^{2}}|_ {x=x_{0}}=1-\gamma<br>
+$$<br>
+$$<br>
+\frac{\partial^{2}\Omega}{\partial x \partial y}|_ {x=x_{0}}=0<br>
+$$<br>
+其中:<br>
+$$<br>
+\gamma=\frac{1-\mu}{\rho_{1}^{3}}+\frac{\mu}{\rho_{2}^{3}}<br>
+$$<br>
+此时运动方程为:<br>
+$$<br>
+\frac{d^{2}\delta x}{dt^{2}}-2\frac{d \delta y}{dt}=(1+2\gamma)\delta x<br>
+$$<br>
+$$<br>
+\frac{d^{2}\delta y}{dt^{2}}+2\frac{d \delta x}{dt}=(1-\gamma)\delta y<br>
+$$<br>
+设置检测轨道:$\delta x=Ae^{\omega t},\delta y=Be^{\omega t}$,其中$A,B,\omega$均为常数.</li>
 </ol>
 <p>若$\omega$为非零的实数,则可以判断该拉格朗日点是不稳定的； 若$\omega$为纯虚数, 则可以判断该拉格朗日点是稳定的.</p>
-<p>将检测轨道代入上述的运动方程, 且消去参数$A,B$,得到关于$\omega$的方程:</p>
-<script type="math/tex; mode=display">
-\omega^{4}+(2-\gamma)\omega^{2}+(1+2\gamma)(1-\gamma)=0 \\</script><p>解得:</p>
-<script type="math/tex; mode=display">
-\omega^{2}=\frac{\gamma-2\pm\sqrt{\gamma(9\gamma-8)}}{2} \\</script><p>要想让$\omega$为纯虚数, 则:</p>
-<script type="math/tex; mode=display">
-\gamma(9\gamma-8)>0, (1+2\gamma)(1-\gamma)>0 \\</script><p>解得: $\frac{8}{9}&lt;\gamma&lt;1$. 此为稳定判据.</p>
-<p>而事实上, 对于$L_{1},L_{2},L_{3}$点, 有：</p>
-<script type="math/tex; mode=display">
-\frac{\partial \Omega}{\partial x}=x-\frac{1-\mu}{\rho_{1}^{3}}(x+\mu)-\frac{\mu}{\rho_{2}^{3}}(x+\mu-1)=0 \\</script><p>其中$\rho_{1}=|x+\mu|,\rho_{2}=|x-1+\mu|$.</p>
-<p>整理得:</p>
-<script type="math/tex; mode=display">
-1-\gamma=\frac{\mu(1-\mu)}{x}\frac{\rho_{2}^{3}-\rho_{1}^{3}}{\rho_{1}^{3}\rho_{2}^{3}}<0 \\</script><p>故对于$L_{1},L_{2},L_{3}$点,$\gamma&gt;1$,即满足稳定判据, 也就是说$L_{1},L_{2},L_{3}$点是不稳定点.</p>
-<ol>
-<li>若$(x_{0},y_{0})$为$L_{4},L_{5}$中的某点, 则$x_{0}=-\mu+\frac{1}{2}, y_{0}=\pm\frac{\sqrt{3}}{4}$. 此时：<script type="math/tex; mode=display">
-\frac{\partial^{2}\Omega}{\partial x^{2}}|_ {x_{0},y_{0}}=\frac{3}{4}</script><script type="math/tex; mode=display">
-\frac{\partial^{2}\Omega}{\partial y^{2}}|_ {x_{0},y_{0}}=\frac{9}{4}</script><script type="math/tex; mode=display">
-\frac{\partial^{2}\Omega}{\partial x \partial y}|_ {x_{0},y_{0}}=\pm \frac{3\sqrt{3}}{4}(1-2\mu)=a</script>此时运动方程为:<script type="math/tex; mode=display">
-\frac{d^{2}\delta x}{dt^{2}}-2\frac{d \delta y}{dt}=\frac{3}{4}\delta x+a\delta y</script><script type="math/tex; mode=display">
-\frac{d^{2}\delta y}{dt^{2}}+2\frac{d \delta x}{dt}=\frac{9}{4}\delta y+a\delta x</script>将检测轨道代入上述的运动方程, 且消去参数$A,B$,得到关于$\omega$的方程:<script type="math/tex; mode=display">
-\omega^{4}+\omega^{2}+\frac{27}{4}\mu(1-\mu)=0 \\</script>解得:<script type="math/tex; mode=display">
-\omega^{2}=\frac{-1\pm\sqrt{1-27\mu(1-\mu)}}{2} \\</script>要想让$\omega$为纯虚数, 则:<script type="math/tex; mode=display">
-1-27\mu(1-\mu)>0, \frac{27}{4}\mu(1-\mu)>0 \\</script>解得: $0&lt;\mu&lt;\frac{1}{2}-\sqrt{\frac{23}{108}}\approx 0.0385$.</li>
+<p>将检测轨道代入上述的运动方程, 且消去参数$A,B$,得到关于$\omega$的方程:<br>
+$$<br>
+\omega^{4}+(2-\gamma)\omega^{2}+(1+2\gamma)(1-\gamma)=0 \<br>
+$$<br>
+解得:<br>
+$$<br>
+\omega^{2}=\frac{\gamma-2\pm\sqrt{\gamma(9\gamma-8)}}{2} \<br>
+$$<br>
+要想让$\omega$为纯虚数, 则:<br>
+$$<br>
+\gamma(9\gamma-8)&gt;0, (1+2\gamma)(1-\gamma)&gt;0 \<br>
+$$<br>
+解得: $\frac{8}{9}&lt;\gamma&lt;1$. 此为稳定判据.</p>
+<p>而事实上, 对于$L_{1},L_{2},L_{3}$点, 有：<br>
+$$<br>
+\frac{\partial \Omega}{\partial x}=x-\frac{1-\mu}{\rho_{1}^{3}}(x+\mu)-\frac{\mu}{\rho_{2}^{3}}(x+\mu-1)=0 \<br>
+$$<br>
+其中$\rho_{1}=|x+\mu|,\rho_{2}=|x-1+\mu|$.</p>
+<p>整理得:<br>
+$$<br>
+1-\gamma=\frac{\mu(1-\mu)}{x}\frac{\rho_{2}^{3}-\rho_{1}^{3}}{\rho_{1}^{3}\rho_{2}^{3}}&lt;0 \<br>
+$$<br>
+故对于$L_{1},L_{2},L_{3}$点,$\gamma&gt;1$,即满足稳定判据, 也就是说$L_{1},L_{2},L_{3}$点是不稳定点.</p>
+<ol start="2">
+<li>若$(x_{0},y_{0})$为$L_{4},L_{5}$中的某点, 则$x_{0}=-\mu+\frac{1}{2}, y_{0}=\pm\frac{\sqrt{3}}{4}$. 此时：<br>
+$$<br>
+\frac{\partial^{2}\Omega}{\partial x^{2}}|_ {x_{0},y_{0}}=\frac{3}{4}<br>
+$$<br>
+$$<br>
+\frac{\partial^{2}\Omega}{\partial y^{2}}|_ {x_{0},y_{0}}=\frac{9}{4}<br>
+$$<br>
+$$<br>
+\frac{\partial^{2}\Omega}{\partial x \partial y}|_ {x_{0},y_{0}}=\pm \frac{3\sqrt{3}}{4}(1-2\mu)=a<br>
+$$<br>
+此时运动方程为:<br>
+$$<br>
+\frac{d^{2}\delta x}{dt^{2}}-2\frac{d \delta y}{dt}=\frac{3}{4}\delta x+a\delta y<br>
+$$<br>
+$$<br>
+\frac{d^{2}\delta y}{dt^{2}}+2\frac{d \delta x}{dt}=\frac{9}{4}\delta y+a\delta x<br>
+$$<br>
+将检测轨道代入上述的运动方程, 且消去参数$A,B$,得到关于$\omega$的方程:<br>
+$$<br>
+\omega^{4}+\omega^{2}+\frac{27}{4}\mu(1-\mu)=0 \<br>
+$$<br>
+解得:<br>
+$$<br>
+\omega^{2}=\frac{-1\pm\sqrt{1-27\mu(1-\mu)}}{2} \<br>
+$$<br>
+要想让$\omega$为纯虚数, 则:<br>
+$$<br>
+1-27\mu(1-\mu)&gt;0, \frac{27}{4}\mu(1-\mu)&gt;0 \<br>
+$$<br>
+解得: $0&lt;\mu&lt;\frac{1}{2}-\sqrt{\frac{23}{108}}\approx 0.0385$.</li>
 </ol>
 <p>由上可知,当$\mu&lt;0.0385$时, 拉格朗日点$L_{4},L_{5}$比较稳定. 在以太阳、行星为主天体的限制性三体系统内, 稳定的$L_{4},L_{5}$点附近可能存在小天体,这些小天体被称为特洛伊小天体/特洛伊小行星(Trojans asteroids).</p>
 <p>比如在太阳-木星系统中, 木星轨道前后方,也就是木星的$L_{4},L_{5}$点附近发现有数千颗特洛伊小行星. 在木星轨道前方,特洛伊小行星称为“希腊群”, 在木星轨道后方,特洛伊小行星称为“特洛伊群”.</p>
@@ -363,7 +523,7 @@ x=-\mu+\frac{1}{2}, y=\pm \frac{\sqrt{3}}{2} \\</script>该两点称为拉格朗
                 <ul class="pager">
                     
                         <li class="previous">
-                            <a href="/2021/02/26/Journal-Club/" data-toggle="tooltip" data-placement="top" title="日常组会口头报告">&larr; Previous Post</a>
+                            <a href="/2021/03/19/NAOC/" data-toggle="tooltip" data-placement="top" title="国台20周年祝福视频台词">&larr; Previous Post</a>
                         </li>
                     
                     
