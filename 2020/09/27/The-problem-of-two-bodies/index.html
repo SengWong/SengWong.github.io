@@ -151,20 +151,6 @@
 
                         
                         <li>
-                            <a href="/archive/">归档</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
-                            <a href="/Research-Interests/">研究兴趣</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
                             <a href="/about/">关于我</a>
                         </li>
                         
@@ -172,7 +158,21 @@
 
                         
                         <li>
+                            <a href="/archive/">归档</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
                             <a href="/tags/">标签</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/Research-Interests/">研究兴趣</a>
                         </li>
                         
                     
@@ -228,194 +228,345 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <p>宇宙中任何物体都受其他物体都引力吸引. 但在行星科学的研究领域中，我们研究一个物体的运行轨迹时，可以初略考虑这个物体仅受到另一个物体的引力. 此时，研究该物体的轨道的问题，可以称之为二体问题.  </p>
-<h2><span id="行星运行的开普勒定律">行星运行的开普勒定律</span></h2><p>开普勒通过仔细分析观测到的行星轨迹数据，得出了关于行星运行的三大定律：</p>
+                <p>宇宙中任何物体都受其他物体都引力吸引. 但在行星科学的研究领域中，我们研究一个物体的运行轨迹时，可以初略考虑这个物体仅受到另一个物体的引力. 此时，研究该物体的轨道的问题，可以称之为二体问题.</p>
+<h2><span id="行星运行的开普勒定律">行星运行的开普勒定律</span></h2>
+<p>开普勒通过仔细分析观测到的行星轨迹数据，得出了关于行星运行的三大定律：</p>
 <ul>
-<li>行星围绕太阳运行的轨道为椭圆，且太阳是位于该椭圆的一个焦点上. 若把极坐标的极轴取作太阳向行星近日点方向上，则该椭圆的表达式为：<script type="math/tex; mode=display">
-r=\frac{a(1-e^{2})}{1+e\cos f}</script></li>
+<li>行星围绕太阳运行的轨道为椭圆，且太阳是位于该椭圆的一个焦点上. 若把极坐标的极轴取作太阳向行星近日点方向上，则该椭圆的表达式为：<br>
+$$<br>
+r=\frac{a(1-e^{2})}{1+e\cos f}<br>
+$$</li>
 </ul>
-<p>其中，$r$为行星到太阳的距离，$a$为椭圆的半长轴, $e=\sqrt{1-\frac{b^{2}}{a^{2}}}$为椭圆的离心率, $b$为椭圆的半短轴, $f=\theta-\varpi$为真近点角, $\theta$为极角，$\varpi$为近点角距.</p>
+<p>其中，$r$为行星到太阳的距离，$a$为椭圆的半长轴, $e=\sqrt{1-\frac{b^{2}}{a^{2}}}$为椭圆的离心率, $b$为椭圆的半短轴, $f=\theta-\varpi$为真近点角, $\theta$为极角，$\varpi$为近点角距.</p>
 <p><img src="https://static01.imgkr.com/temp/673311c7d49942398f642edd9282f90f.jpg" alt><center>椭圆轨道示意图</center></p>
 <ul>
-<li>行星向径在相等时间内扫过的面积相等：<script type="math/tex; mode=display">
-\frac{dA}{dt}=\frac{1}{2}h=\frac{\pi a^{2} \sqrt{1-e^{2}}}{T}</script></li>
+<li>行星向径在相等时间内扫过的面积相等：<br>
+$$<br>
+\frac{dA}{dt}=\frac{1}{2}h=\frac{\pi a^{2} \sqrt{1-e^{2}}}{T}<br>
+$$</li>
 </ul>
-<p>其中$A$为扫过的面积, $h=r^{2}\dot \theta =\frac{2\pi a^{2} \sqrt{1-e^{2}}}{T}$为一常数, $T$为周期.</p>
+<p>其中$A$为扫过的面积, $h=r^{2}\dot \theta =\frac{2\pi a^{2} \sqrt{1-e^{2}}}{T}$为一常数, $T$为周期.</p>
 <ul>
-<li>行星绕太阳运动的周期平方与轨道椭圆半长径的立方成正比：<script type="math/tex; mode=display">
-T^{2}=ka^{3}</script></li>
+<li>行星绕太阳运动的周期平方与轨道椭圆半长径的立方成正比：<br>
+$$<br>
+T^{2}=ka^{3}<br>
+$$</li>
 </ul>
 <p>其中，$k$是一个与行星无关的比例常数.</p>
-<h2><span id="由开普勒定律推导出万有引力定律">由开普勒定律推导出万有引力定律</span></h2><p>在极坐标中，加速度可分解为径向和切向分量：</p>
-<script type="math/tex; mode=display">
-\textbf{a}=a_{r}\textbf{e}_{r}+a_{\theta}\textbf{e}_{\theta}</script><p>其中$a_{r}=\ddot{r}-r\ddot{\theta}^{2}$, $a_{\theta}=\frac{1}{r}\frac{d}{dt}\left(r^{2}\ddot{\theta}\right)$.</p>
+<h2><span id="由开普勒定律推导出万有引力定律">由开普勒定律推导出万有引力定律</span></h2>
+<p>在极坐标中，加速度可分解为径向和切向分量：<br>
+$$<br>
+\textbf{a}=a_{r}\textbf{e}<em>{r}+a</em>{\theta}\textbf{e}_{\theta}<br>
+$$</p>
+<p>其中$a_{r}=\ddot{r}-r\ddot{\theta}^{2}$, $a_{\theta}=\frac{1}{r}\frac{d}{dt}\left(r^{2}\ddot{\theta}\right)$.</p>
 <p>根据开普勒第二定律，$h=r^{2}\dot{\theta}$为常数, 故$a_{\theta}=0$.</p>
-<p>故加速度为径向，行星所受的力$\textbf{F}$为有心力:</p>
-<script type="math/tex; mode=display">
-\textbf{F}=ma_{r}\textbf{e}_{r}=m\left(\ddot{r}-r\dot{\theta}^{2}\right)\textbf{e}_{r}</script><p>根据开普勒第二定律，有$\dot{\theta}=\frac{h}{r^{2}}$, 所以：</p>
-<script type="math/tex; mode=display">
-\ddot{r}-r\dot{\theta}^{2}=\ddot{r}-\frac{h^{2}}{r^{3}}</script><p>而根据开普勒第一定律，有：</p>
-<script type="math/tex; mode=display">
-\frac{dr}{d\theta}=\frac{ae\left(1-e^{2}\right)\sin f}{\left(1+e\cos f\right)^{2}}</script><script type="math/tex; mode=display">
-\frac{d^{2}r}{d\theta^{2}}=ae\left(1-e^{2}\right)\left[\frac{\cos f}{\left(1+e\cos f\right)^{2}}+\frac{2e\sin^{2} f}{\left(1+e\cos f\right)^{3}}\right]</script><p>而：</p>
-<script type="math/tex; mode=display">
-\ddot{r}=\frac{d\dot{r}}{dt}=\frac{d}{d\theta}\left(\dot{\theta}\frac{dr}{d\theta}\right)\dot{\theta}=\frac{h^{2}}{r^{4}}\left[\frac{d^{2}r}{d\theta^{2}}-\frac{2}{r}\left(\frac{dr}{d\theta}\right)^{2}\right]</script><p>综合上述各式，得：<br>\begin{equation}<br>\textbf{F}=-\frac{mh^{2}}{a\left(1-e^{2}\right)}\frac{1}{r^{2}} \textbf{e}_ {r}=-\frac{m\mu}{r^{2}}\textbf{e}_{r}<br>\end{equation}</p>
+<p>故加速度为径向，行星所受的力$\textbf{F}$为有心力:<br>
+$$<br>
+\textbf{F}=ma_{r}\textbf{e}<em>{r}=m\left(\ddot{r}-r\dot{\theta}^{2}\right)\textbf{e}</em>{r}<br>
+$$</p>
+<p>根据开普勒第二定律，有$\dot{\theta}=\frac{h}{r^{2}}$, 所以：<br>
+$$<br>
+\ddot{r}-r\dot{\theta}^{2}=\ddot{r}-\frac{h^{2}}{r^{3}}<br>
+$$</p>
+<p>而根据开普勒第一定律，有：</p>
+<p>$$<br>
+\frac{dr}{d\theta}=\frac{ae\left(1-e^{2}\right)\sin f}{\left(1+e\cos f\right)^{2}}<br>
+$$</p>
+<p>$$<br>
+\frac{d^{2}r}{d\theta^{2}}=ae\left(1-e^{2}\right)\left[\frac{\cos f}{\left(1+e\cos f\right)^{2}}+\frac{2e\sin^{2} f}{\left(1+e\cos f\right)^{3}}\right]<br>
+$$</p>
+<p>而：</p>
+<p>$$<br>
+\ddot{r}=\frac{d\dot{r}}{dt}=\frac{d}{d\theta}\left(\dot{\theta}\frac{dr}{d\theta}\right)\dot{\theta}=\frac{h^{2}}{r^{4}}\left[\frac{d^{2}r}{d\theta^{2}}-\frac{2}{r}\left(\frac{dr}{d\theta}\right)^{2}\right]<br>
+$$</p>
+<p>综合上述各式，得：<br>
+\begin{equation}<br>
+\textbf{F}=-\frac{mh^{2}}{a\left(1-e^{2}\right)}\frac{1}{r^{2}} \textbf{e}_ {r}=-\frac{m\mu}{r^{2}}\textbf{e}_{r}<br>
+\end{equation}</p>
 <p>其中,$\mu=\frac{h^{2}}{a\left(1-e^{2}\right)}=\frac{4\pi^{2}a^{3}}{T^{2}}$.</p>
 <p>根据开普勒第三定律，$\mu=\frac{4\pi^{2}a^{3}}{T^{2}}=\frac{4\pi^{2}}{k}$为一常数.</p>
-<p>不妨将$\mu$写成$\mu=GM$, 其中$G$为引力常数，$M$为太阳质量，则力$\textbf{F}$可以表示为：</p>
-<script type="math/tex; mode=display">
-\textbf{F}=-G\frac{Mm}{r^{2}}\textbf{e}_{r}</script><p>而这正是牛顿的万有引力表达式.</p>
-<h2><span id="由万有引力定律推导开普勒定律">由万有引力定律推导开普勒定律</span></h2><p>考虑两个物体在相互之间的万有引力下的运动. 如下图，坐标原点选为点$O$, 两物体的质量为$m_{i}$, 各自离原点$O$的位移为$\textbf{r}_{i}, i=1,2$.</p>
+<p>不妨将$\mu$写成$\mu=GM$, 其中$G$为引力常数，$M$为太阳质量，则力$\textbf{F}$可以表示为：<br>
+$$<br>
+\textbf{F}=-G\frac{Mm}{r^{2}}\textbf{e}_{r}<br>
+$$</p>
+<p>而这正是牛顿的万有引力表达式.</p>
+<h2><span id="由万有引力定律推导开普勒定律">由万有引力定律推导开普勒定律</span></h2>
+<p>考虑两个物体在相互之间的万有引力下的运动. 如下图，坐标原点选为点$O$, 两物体的质量为$m_{i}$, 各自离原点$O$的位移为$\textbf{r}_{i}, i=1,2$.</p>
 <p><img src="https://static01.imgkr.com/temp/73b21fbffacd4822b678c3af2a9c5fff.png" alt> <center>二体运动示意图</center></p>
-<p>则根据引力定律，有：</p>
-<script type="math/tex; mode=display">
-m_{1}\ddot{\textbf{r}}_{1}=\textbf{F}_{1}=+\frac{Gm_{1}m_{2}}{r^{3}}\textbf{r}</script><script type="math/tex; mode=display">
-m_{2}\ddot{\textbf{r}}_{2}=\textbf{F}_{2}=-\frac{Gm_{1}m_{2}}{r^{3}}\textbf{r}</script><p>其中,$\textbf{r}=\textbf{r}_{2}-\textbf{r}_{1}$.</p>
-<p>上述两式相减, 得到相对运动方程：</p>
-<script type="math/tex; mode=display">
-\ddot{\textbf{r}}+\mu\frac{\textbf{r}}{r^{3}}=0</script><p>其中$\mu=G(m_{1}+m_{2})$.</p>
+<p>则根据引力定律，有：<br>
+$$<br>
+m_{1}\ddot{\textbf{r}}<em>{1}=\textbf{F}</em>{1}=+\frac{Gm_{1}m_{2}}{r^{3}}\textbf{r}<br>
+$$</p>
+<p>$$<br>
+m_{2}\ddot{\textbf{r}}<em>{2}=\textbf{F}</em>{2}=-\frac{Gm_{1}m_{2}}{r^{3}}\textbf{r}<br>
+$$</p>
+<p>其中,$\textbf{r}=\textbf{r}<em>{2}-\textbf{r}</em>{1}$.</p>
+<p>上述两式相减, 得到相对运动方程：<br>
+$$<br>
+\ddot{\textbf{r}}+\mu\frac{\textbf{r}}{r^{3}}=0<br>
+$$</p>
+<p>其中$\mu=G(m_{1}+m_{2})$.</p>
 <p>在上述对相对运动方程两边与作向量叉积, 得到：</p>
-<script type="math/tex; mode=display">
-\textbf{r}\times \left(\ddot{\textbf{r}}+\mu\frac{\textbf{r}}{r^{3}}\right)=\textbf{r}\times\ddot{\textbf{r}}+\frac{\mu}{r^{3}}\left(\textbf{r}\times\textbf{r}\right)=\textbf{r}\times\ddot{\textbf{r}}=0</script><p>即：</p>
-<script type="math/tex; mode=display">
-\frac{d}{dt}\left(\textbf{r}\times\dot{\textbf{r}}\right)=\textbf{r}\times\ddot{\textbf{r}}=0</script><p>故$\textbf{r}\times\dot{\textbf{r}}=\textbf{h}$, 其中$\textbf{h}$为常向量.</p>
-<p>可以看到，常向量$\textbf{h}=\textbf{r}\times\dot{\textbf{r}}$定义了二体问题中的不变平面，这两个物体运行的轨道就位于这个平面内. $h=|\textbf{h}|$为轨道相对运动的角动量. 故角动量守恒.</p>
+<p>$$<br>
+\textbf{r}\times \left(\ddot{\textbf{r}}+\mu\frac{\textbf{r}}{r^{3}}\right)=\textbf{r}\times\ddot{\textbf{r}}+\frac{\mu}{r^{3}}\left(\textbf{r}\times\textbf{r}\right)=\textbf{r}\times\ddot{\textbf{r}}=0<br>
+$$</p>
+<p>即：<br>
+$$<br>
+\frac{d}{dt}\left(\textbf{r}\times\dot{\textbf{r}}\right)=\textbf{r}\times\ddot{\textbf{r}}=0<br>
+$$<br>
+故$\textbf{r}\times\dot{\textbf{r}}=\textbf{h}$, 其中$\textbf{h}$为常向量.</p>
+<p>可以看到，常向量$\textbf{h}=\textbf{r}\times\dot{\textbf{r}}$定义了二体问题中的不变平面，这两个物体运行的轨道就位于这个平面内. $h=|\textbf{h}|$为轨道相对运动的角动量. 故角动量守恒.</p>
 <p>由于运动的轨道是处于这个平面内，故可以利用二维平面的极坐标来具体分析轨道. 定义极坐标：</p>
-<script type="math/tex; mode=display">
-\textbf{r}=r\textbf{e}_ {r},  \dot{\textbf{r}}=\dot{r}\textbf{e}_ {r}+r\dot{\theta}\textbf{e}_ {\theta}, \ddot{\textbf{r}}=\left(\ddot{r}-r\dot{\theta}^{2}\right)\textbf{e}_ {r}+\left[\frac{1}{r}\frac{d}{dt}\left(r^{2}\dot{\theta}\right) \right]\textbf{e}_{\theta}</script><p>此时:</p>
-<script type="math/tex; mode=display">
-\textbf{h}=\textbf{r}\times\dot{\textbf{r}}=\begin{vmatrix} \textbf{e}_ {r} & \textbf{e}_ {\theta} & \textbf{e}_{z} \\
-r & 0 & 0 \\ \dot{r} & r\dot{\theta} & 0\end{vmatrix}=r^{2}\dot{\theta}\textbf{e}_{z}</script><p>故角动量$h=|\textbf{h}|=r^{2}\dot{\theta}$.</p>
+<p>$$<br>
+\textbf{r}=r\textbf{e}_ {r},  \dot{\textbf{r}}=\dot{r}\textbf{e}_ {r}+r\dot{\theta}\textbf{e}_ {\theta}, \ddot{\textbf{r}}=\left(\ddot{r}-r\dot{\theta}^{2}\right)\textbf{e}_ {r}+\left[\frac{1}{r}\frac{d}{dt}\left(r^{2}\dot{\theta}\right) \right]\textbf{e}_{\theta}<br>
+$$</p>
+<p>此时:</p>
+<p>$$<br>
+\textbf{h}=\textbf{r}\times\dot{\textbf{r}}=\begin{vmatrix} \textbf{e}_ {r} &amp; \textbf{e}_ {\theta} &amp; \textbf{e}<em>{z} \<br>
+r &amp; 0 &amp; 0 \ \dot{r} &amp; r\dot{\theta} &amp; 0\end{vmatrix}=r^{2}\dot{\theta}\textbf{e}</em>{z}<br>
+$$</p>
+<p>故角动量$h=|\textbf{h}|=r^{2}\dot{\theta}$.</p>
 <p>则向径扫过的面积速度为$\frac{dA}{dt}=\frac{1}{2}r^{2}\frac{d\theta}{dt}=\frac{1}{2}h$, 这就是开普勒第二定律.</p>
 <p>若在相对运动方程的两边对取点积, 则：</p>
-<script type="math/tex; mode=display">
-\dot{\textbf{r}}\cdot\left(\ddot{\textbf{r}}+\mu\frac{\textbf{r}}{r^{3}}\right)=\dot{\textbf{r}}\cdot \ddot{\textbf{r}}+\frac{\mu}{r^{3}}\dot{\textbf{r}}\cdot\textbf{r}=\dot{\textbf{r}}\cdot \ddot{\textbf{r}}+\frac{\mu}{r^{2}}\dot{r}=0</script><p>对上式积分,得：</p>
-<script type="math/tex; mode=display">
-\frac{1}{2}\dot{\textbf{r}}\cdot \dot{\textbf{r}}-\frac{\mu}{r}=\frac{1}{2}v^{2}-\frac{\mu}{r}=E</script><p>此式成为活力积分, 其物理含义为能量守恒.</p>
-<p>将$\ddot{\textbf{r}}=\left(\ddot{r}-r\dot{\theta}^{2}\right)\textbf{e}_ {r}+\left[\frac{1}{r}\frac{d}{dt}\left(r^{2}\dot{\theta}\right) \right]\textbf{e}_{\theta}$代入相对运动方程，得到：</p>
-<script type="math/tex; mode=display">
-\ddot{r}-r\dot{\theta}^{2}=-\frac{\mu}{r^{2}}</script><p>将：</p>
-<script type="math/tex; mode=display">
-\ddot{r}=\frac{d\dot{r}}{dt}=\frac{d}{d\theta}\left(\dot{\theta}\frac{dr}{d\theta}\right)\dot{\theta}=\frac{h^{2}}{r^{4}}\left[\frac{d^{2}r}{d\theta^{2}}-\frac{2}{r}\left(\frac{dr}{d\theta}\right)^{2} \right]</script><script type="math/tex; mode=display">
-h=r^{2}\dot{\theta}</script><p>代入上式，得到关于$r$的二阶常微分方程：</p>
-<script type="math/tex; mode=display">
-\frac{d^{2}r}{d\theta^{2}}-\frac{2}{r}\left(\frac{dr}{d\theta}\right)^{2}=r-\frac{\mu}{h^{2}}r^{2}</script><p>作代换$u=\frac{1}{r}$，这样可以将一阶微分项消除，得到：</p>
-<script type="math/tex; mode=display">
-\frac{d^{2}u}{d\theta^{2}}+u=\frac{\mu}{h^{2}}</script><p>该微分方程的解为：</p>
-<script type="math/tex; mode=display">
-u=\frac{\mu}{h^{2}}\left[1+e\cos(\theta-\varpi)\right]</script><p>即得到$r$的表达式：</p>
-<script type="math/tex; mode=display">
-r=\frac{p}{1+e\cos(\theta-\varpi)}</script><p>这个方程表示的是圆锥曲线,其中$p=\frac{h^{2}}{\mu}$为圆锥曲线的通径,$a$为半主径, $e$为偏心率. 根据偏心率的大小可以将圆锥曲线分为三类：</p>
+<p>$$<br>
+\dot{\textbf{r}}\cdot\left(\ddot{\textbf{r}}+\mu\frac{\textbf{r}}{r^{3}}\right)=\dot{\textbf{r}}\cdot \ddot{\textbf{r}}+\frac{\mu}{r^{3}}\dot{\textbf{r}}\cdot\textbf{r}=\dot{\textbf{r}}\cdot \ddot{\textbf{r}}+\frac{\mu}{r^{2}}\dot{r}=0<br>
+$$</p>
+<p>对上式积分,得：<br>
+$$<br>
+\frac{1}{2}\dot{\textbf{r}}\cdot \dot{\textbf{r}}-\frac{\mu}{r}=\frac{1}{2}v^{2}-\frac{\mu}{r}=E<br>
+$$</p>
+<p>此式成为活力积分, 其物理含义为能量守恒.</p>
+<p>将$\ddot{\textbf{r}}=\left(\ddot{r}-r\dot{\theta}^{2}\right)\textbf{e}_ {r}+\left[\frac{1}{r}\frac{d}{dt}\left(r^{2}\dot{\theta}\right) \right]\textbf{e}_{\theta}$代入相对运动方程，得到：<br>
+$$<br>
+\ddot{r}-r\dot{\theta}^{2}=-\frac{\mu}{r^{2}}<br>
+$$</p>
+<p>将：</p>
+<p>$$<br>
+\ddot{r}=\frac{d\dot{r}}{dt}=\frac{d}{d\theta}\left(\dot{\theta}\frac{dr}{d\theta}\right)\dot{\theta}=\frac{h^{2}}{r^{4}}\left[\frac{d^{2}r}{d\theta^{2}}-\frac{2}{r}\left(\frac{dr}{d\theta}\right)^{2} \right]<br>
+$$</p>
+<p>$$<br>
+h=r^{2}\dot{\theta}<br>
+$$</p>
+<p>代入上式，得到关于$r$的二阶常微分方程：</p>
+<p>$$<br>
+\frac{d^{2}r}{d\theta^{2}}-\frac{2}{r}\left(\frac{dr}{d\theta}\right)^{2}=r-\frac{\mu}{h^{2}}r^{2}<br>
+$$</p>
+<p>作代换$u=\frac{1}{r}$，这样可以将一阶微分项消除，得到：<br>
+$$<br>
+\frac{d^{2}u}{d\theta^{2}}+u=\frac{\mu}{h^{2}}<br>
+$$</p>
+<p>该微分方程的解为：<br>
+$$<br>
+u=\frac{\mu}{h^{2}}\left[1+e\cos(\theta-\varpi)\right]<br>
+$$</p>
+<p>即得到$r$的表达式：<br>
+$$<br>
+r=\frac{p}{1+e\cos(\theta-\varpi)}<br>
+$$</p>
+<p>这个方程表示的是圆锥曲线,其中$p=\frac{h^{2}}{\mu}$为圆锥曲线的通径,$a$为半主径, $e$为偏心率. 根据偏心率的大小可以将圆锥曲线分为三类：</p>
 <ol>
-<li>若$0&lt; e <1$, 则轨道为椭圆,$a>0$;</1$,></li>
+<li>若$0&lt; e &lt;1$, 则轨道为椭圆,$a&gt;0$;</li>
 <li>若$e=1$, 则轨道为抛物线,$a=\infty$;</li>
 <li>若$e&gt;1$, 则轨道为双曲线,$a&lt;0$.</li>
 </ol>
-<h2><span id="椭圆轨道">椭圆轨道</span></h2><p>若轨道为椭圆，这就是开普勒第一定律. 此时在一个周期内的面积速度为：</p>
-<script type="math/tex; mode=display">
-\frac{A}{T}=\frac{\pi a^{2}\sqrt{1-e^{2}}}{T}=\frac{1}{2}h=\frac{1}{2}\sqrt{\mu a (1-e^{2})}</script><p>根据上式，得：</p>
-<script type="math/tex; mode=display">
-\frac{4\pi^{2}a^{3}}{T^{2}}=\mu=G(m_{1}+m_{2})</script><p>此为开普勒第三定律.</p>
+<h2><span id="椭圆轨道">椭圆轨道</span></h2>
+<p>若轨道为椭圆，这就是开普勒第一定律. 此时在一个周期内的面积速度为：</p>
+<p>$$<br>
+\frac{A}{T}=\frac{\pi a^{2}\sqrt{1-e^{2}}}{T}=\frac{1}{2}h=\frac{1}{2}\sqrt{\mu a (1-e^{2})}<br>
+$$</p>
+<p>根据上式，得：<br>
+$$<br>
+\frac{4\pi^{2}a^{3}}{T^{2}}=\mu=G(m_{1}+m_{2})<br>
+$$</p>
+<p>此为开普勒第三定律.</p>
 <p>若$r$对时间求微分，得：</p>
-<script type="math/tex; mode=display">
-\frac{dr}{dt}=\frac{dr}{d\theta}\frac{d\theta}{dt}=\dot{\theta}\frac{dr}{d\theta}=\frac{h}{r^{2}}\frac{r^{2}}{p^{2}}pe\sin(\theta-\varpi)=\frac{he}{p}\sin(\theta-\varpi)</script><script type="math/tex; mode=display">
-=\frac{h}{p}\sqrt{e^{2}-e^{2}\cos^{2}(\theta-\varpi)}=\frac{1}{r}\sqrt{\frac{\mu}{a}}\sqrt{a^{2}e^{2}-\left(r-a\right)^{2}}</script><p>设$n=\frac{2\pi}{T}$为行星的平均角速度，则根据开普勒第三定律，有：</p>
-<script type="math/tex; mode=display">
-n=\frac{2\pi}{T}=\sqrt{\mu}a^{-\frac{3}{2}}</script><p>则有：</p>
-<script type="math/tex; mode=display">
-ndt=\frac{rdr}{a\sqrt{a^{2}e^{2}-\left(r-a\right)^{2}}}</script><p>令$r-a=-ae\cos\xi$, 则上式化为：</p>
-<script type="math/tex; mode=display">
-ndt=(1-e\cos\xi)d\xi</script><p>积分，并选择时间起点使得积分常数为$0$,则有：</p>
-<script type="math/tex; mode=display">
-r=a(1-e\cos\xi), t=\frac{1}{n}(\xi-e\sin\xi)</script><p>上述关于时间$t$的表达式称为椭圆运动的开普勒方程,其中$\xi$为偏近点角.</p>
+<p>$$<br>
+\frac{dr}{dt}=\frac{dr}{d\theta}\frac{d\theta}{dt}=\dot{\theta}\frac{dr}{d\theta}=\frac{h}{r^{2}}\frac{r^{2}}{p^{2}}pe\sin(\theta-\varpi)=\frac{he}{p}\sin(\theta-\varpi)<br>
+$$</p>
+<p>$$<br>
+=\frac{h}{p}\sqrt{e^{2}-e^{2}\cos^{2}(\theta-\varpi)}=\frac{1}{r}\sqrt{\frac{\mu}{a}}\sqrt{a^{2}e^{2}-\left(r-a\right)^{2}}<br>
+$$</p>
+<p>设$n=\frac{2\pi}{T}$为行星的平均角速度，则根据开普勒第三定律，有：<br>
+$$<br>
+n=\frac{2\pi}{T}=\sqrt{\mu}a^{-\frac{3}{2}}<br>
+$$</p>
+<p>则有：<br>
+$$<br>
+ndt=\frac{rdr}{a\sqrt{a^{2}e^{2}-\left(r-a\right)^{2}}}<br>
+$$</p>
+<p>令$r-a=-ae\cos\xi$, 则上式化为：<br>
+$$<br>
+ndt=(1-e\cos\xi)d\xi<br>
+$$</p>
+<p>积分，并选择时间起点使得积分常数为$0$,则有：</p>
+<p>$$<br>
+r=a(1-e\cos\xi), t=\frac{1}{n}(\xi-e\sin\xi)<br>
+$$</p>
+<p>上述关于时间$t$的表达式称为椭圆运动的开普勒方程,其中$\xi$为偏近点角.</p>
 <p>若消去参数, 则得到$r$关于$t$的表达式：</p>
-<script type="math/tex; mode=display">
-t=\frac{1}{n}  arccos \left[ \frac{1}{e}\left(1-
-\frac{r}{a}\right) \right]-\frac{1}{n} \sqrt{e^{2}-\left(1-
-\frac{r}{a}\right)^{2}}</script><p>下图给出地球轨道的$t-r$图, 时间起点选在近日点.</p>
+<p>$$<br>
+t=\frac{1}{n}  arccos \left[ \frac{1}{e}\left(1-<br>
+\frac{r}{a}\right) \right]-\frac{1}{n} \sqrt{e^{2}-\left(1-<br>
+\frac{r}{a}\right)^{2}}<br>
+$$</p>
+<p>下图给出地球轨道的$t-r$图, 时间起点选在近日点.</p>
 <p><img src="https://static01.imgkr.com/temp/31525868fcea4b3d9214619417e482d9.jpg" alt><center>地球轨道的向径随时间变化的示意图</center></p>
 <p>易知$v^{2}=v_{r}^{2}+v_{\theta}^{2}$, 而：</p>
-<script type="math/tex; mode=display">
-v_{r}^{2}=\left(\frac{dr}{dt}\right)^{2}=\frac{\mu}{ar^{2}}\left[a^{2}e^{2}-(r-a)^{2}\right]=\mu\left(\frac{2}{r}-\frac{1}{a}\right)-\frac{\mu a}{r^{2}}(1-e^{2})</script><script type="math/tex; mode=display">
-v_{\theta}^{2}=r^{2}\dot{\theta}^{2}=\frac{\mu a}{r^{2}}(1-e^{2})</script><p>故：</p>
-<script type="math/tex; mode=display">
-v^{2}=\mu\left(\frac{2}{r}-\frac{1}{a}\right)</script><p>若$a=r=R_{E}$,$\mu=GM_{E}$,则得到第一宇宙速度：</p>
-<script type="math/tex; mode=display">
-v_{1}=\sqrt{\frac{GM_{E}}{R_{E}}}</script><p>其中,$R_{E},M_{E}$为地球半径和质量.</p>
+<p>$$<br>
+v_{r}^{2}=\left(\frac{dr}{dt}\right)^{2}=\frac{\mu}{ar^{2}}\left[a^{2}e^{2}-(r-a)^{2}\right]=\mu\left(\frac{2}{r}-\frac{1}{a}\right)-\frac{\mu a}{r^{2}}(1-e^{2})<br>
+$$</p>
+<p>$$<br>
+v_{\theta}^{2}=r^{2}\dot{\theta}^{2}=\frac{\mu a}{r^{2}}(1-e^{2})<br>
+$$</p>
+<p>故：<br>
+$$<br>
+v^{2}=\mu\left(\frac{2}{r}-\frac{1}{a}\right)<br>
+$$</p>
+<p>若$a=r=R_{E}$,$\mu=GM_{E}$,则得到第一宇宙速度：<br>
+$$<br>
+v_{1}=\sqrt{\frac{GM_{E}}{R_{E}}}<br>
+$$</p>
+<p>其中,$R_{E},M_{E}$为地球半径和质量.</p>
 <p>对于椭圆轨道,$a&gt;0$, 故速度$v&lt;\sqrt{\frac{2\mu}{r}}$.</p>
 <p>下图给出地球在一个周期内运行时的速度分布$(t-v)$图, 时间起点选在近日点.</p>
 <p><img src="https://static01.imgkr.com/temp/d92eb0dcd5524b48833a13f1fc8112a9.jpg" alt><center>地球在一年内公转速度分布图</center></p>
 <p>可见, 在近日点时，速度有最大值$v_{max}=30.44 km/s$, 在远日点时，速度有最小值$v_{min}=29.25 km/s$.</p>
-<h2><span id="抛物线轨道">抛物线轨道</span></h2><p>若轨道为抛物线, 则$e=1$, 此时轨道方程为：</p>
-<script type="math/tex; mode=display">
-r=\frac{p}{1+\cos{f}}=\frac{p}{2\cos^{2}{\frac{f}{2}}}=\frac{p}{2}\sec^{2}{f}</script><p>其中$p$为通径, $f=\theta-\varpi$, $\varpi$为近日点极角.</p>
+<h2><span id="抛物线轨道">抛物线轨道</span></h2>
+<p>若轨道为抛物线, 则$e=1$, 此时轨道方程为：</p>
+<p>$$<br>
+r=\frac{p}{1+\cos{f}}=\frac{p}{2\cos^{2}{\frac{f}{2}}}=\frac{p}{2}\sec^{2}{f}<br>
+$$</p>
+<p>其中$p$为通径, $f=\theta-\varpi$, $\varpi$为近日点极角.</p>
 <p><img src="https://static01.imgkr.com/temp/4609248c32fb486f88eb8afdc1370590.jpg" alt><center>抛物线轨道示意图</center></p>
 <p>能量积分为$h=\sqrt{\mu p}=r^{2}\dot{f}$. 故$\dot{f}=\frac{df}{dt}=r^{-2}\sqrt{\mu p}$, 得：</p>
-<script type="math/tex; mode=display">
-\sqrt{\mu p}dt=r^{2}df=\frac{p^{2}}{4}\sec^{4}{\frac{f}{4}}df</script><p>令$\bar{n}=\sqrt{\mu}p^{-\frac{3}{2}}$为角频率, 则：</p>
-<script type="math/tex; mode=display">
-4\bar{n}dt=\sec^{4}{\frac{f}{2}}df</script><p>积分,得：</p>
-<script type="math/tex; mode=display">
-2\bar{n}(t-\tau)=\int{\frac{1}{2}\sec^{4}{\frac{f}{2}}}df=\int{\frac{d\left(\frac{f}{2}\right)}{\cos^{4}{\frac{f}{2}}}}=\tan{\frac{f}{2}}+\frac{1}{3}\tan^{3}{\frac{f}{2}}</script><p>此为抛物线轨道的开普勒方程.</p>
+<p>$$<br>
+\sqrt{\mu p}dt=r^{2}df=\frac{p^{2}}{4}\sec^{4}{\frac{f}{4}}df<br>
+$$</p>
+<p>令$\bar{n}=\sqrt{\mu}p^{-\frac{3}{2}}$为角频率, 则：<br>
+$$<br>
+4\bar{n}dt=\sec^{4}{\frac{f}{2}}df<br>
+$$</p>
+<p>积分,得：</p>
+<p>$$<br>
+2\bar{n}(t-\tau)=\int{\frac{1}{2}\sec^{4}{\frac{f}{2}}}df=\int{\frac{d\left(\frac{f}{2}\right)}{\cos^{4}{\frac{f}{2}}}}=\tan{\frac{f}{2}}+\frac{1}{3}\tan^{3}{\frac{f}{2}}<br>
+$$</p>
+<p>此为抛物线轨道的开普勒方程.</p>
 <p>向径与时间的参数方程为：</p>
-<script type="math/tex; mode=display">
-t=\frac{1}{2\bar{n}}\left(\tan{\frac{f}{2}}+\frac{1}{3}\tan^{3}{\frac{f}{2}}\right)</script><p>由上可知，当$f$趋近$\pi$时,$\tan^{2}{\frac{f}{2}}\gg 1$,$\tan^{3}{\frac{f}{2}}\gg \tan{\frac{f}{2}}$. 故$r\sim \tan^{2}{\frac{f}{2}}$,$t\sim \tan^{3}{\frac{f}{2}}$, 故$r\sim t^{\frac{2}{3}}$.</p>
+<p>$$<br>
+t=\frac{1}{2\bar{n}}\left(\tan{\frac{f}{2}}+\frac{1}{3}\tan^{3}{\frac{f}{2}}\right)<br>
+$$</p>
+<p>由上可知，当$f$趋近$\pi$时,$\tan^{2}{\frac{f}{2}}\gg 1$,$\tan^{3}{\frac{f}{2}}\gg \tan{\frac{f}{2}}$. 故$r\sim \tan^{2}{\frac{f}{2}}$,$t\sim \tan^{3}{\frac{f}{2}}$, 故$r\sim t^{\frac{2}{3}}$.</p>
 <p><img src="https://static01.imgkr.com/temp/c14143c407ff4995866984016fd5d570.jpg" alt><center>抛物线轨道向径和的关系</center></p>
 <p>上图中, 黑色的实线表示$t-r$关系, 红色的虚线表示$$r=t^{\frac{2}{3}}.</p>
 <p>速度$v^{2}=v_{r}^{2}+v_{f}^{2}$, 而：</p>
-<script type="math/tex; mode=display">
-\frac{dr}{dt}=\dot{f}\frac{dr}{df}=-\sqrt{\frac{\mu}{p}}\sin{f}</script><p>故：</p>
-<script type="math/tex; mode=display">
-v_{r}^{2}=\left(\frac{dr}{dt}\right)^{2}=\frac{\mu}{p}\sin^{2}{f}=\frac{2\mu}{r}-\frac{\mu p}{r^{2}}</script><p>而：</p>
-<script type="math/tex; mode=display">
-v_{f}^{2}=r^{2}\dot{f}^{2}=\frac{\mu p}{r^{2}}</script><p>所以：</p>
-<script type="math/tex; mode=display">
-v^{2}=v_{r}^{2}+v_{f}^{2}=\frac{2\mu}{r}</script><p>即：</p>
-<script type="math/tex; mode=display">
-v=\sqrt{\frac{2\mu}{r}}</script><p>若$r=R_{E}$,$\mu=GM_{E}$, $R_{E}, M_{E}$分别为地球的半径和地球的质量，则得到第二宇宙速度的表达式：</p>
-<script type="math/tex; mode=display">
-v_{2}=\sqrt{\frac{2GM_{E}}{R_{E}}}</script><p>抛物线轨道还有一个关于行星在两时刻的向径和弦之间的关系.</p>
+<p>$$<br>
+\frac{dr}{dt}=\dot{f}\frac{dr}{df}=-\sqrt{\frac{\mu}{p}}\sin{f}<br>
+$$</p>
+<p>故：</p>
+<p>$$<br>
+v_{r}^{2}=\left(\frac{dr}{dt}\right)^{2}=\frac{\mu}{p}\sin^{2}{f}=\frac{2\mu}{r}-\frac{\mu p}{r^{2}}<br>
+$$</p>
+<p>而：<br>
+$$<br>
+v_{f}^{2}=r^{2}\dot{f}^{2}=\frac{\mu p}{r^{2}}<br>
+$$</p>
+<p>所以：<br>
+$$<br>
+v^{2}=v_{r}^{2}+v_{f}^{2}=\frac{2\mu}{r}<br>
+$$</p>
+<p>即：<br>
+$$<br>
+v=\sqrt{\frac{2\mu}{r}}<br>
+$$</p>
+<p>若$r=R_{E}$,$\mu=GM_{E}$, $R_{E}, M_{E}$分别为地球的半径和地球的质量，则得到第二宇宙速度的表达式：<br>
+$$<br>
+v_{2}=\sqrt{\frac{2GM_{E}}{R_{E}}}<br>
+$$</p>
+<p>抛物线轨道还有一个关于行星在两时刻的向径和弦之间的关系.</p>
 <p>不妨设按抛物线轨道运行的行星在时刻$t_{1}, t_{2}$分别位于$P_{1},P_{2}$两点, 坐标分别为$(r_{1},f_{1}), (r_{2}, f_{2})$. 则有:</p>
-<script type="math/tex; mode=display">
-t_{1}=\frac{1}{2\bar{n}}\left(\tan{\frac{f_{1}}{2}}+\frac{1}{3}\tan^{3}{\frac{f_{1}}{2}}\right)</script><script type="math/tex; mode=display">
-t_{2}=\frac{1}{2\bar{n}}\left(\tan{\frac{f_{2}}{2}}+\frac{1}{3}\tan^{3}{\frac{f_{2}}{2}}\right)</script><p>相减, 得:</p>
-<script type="math/tex; mode=display">
-t_{2}-t_{1}=\frac{1}{2\bar{n}}\left[\left(\tan{\frac{f_{2}}{2}}-\tan{\frac{f_{1}}{2}}\right)+\frac{1}{3}\left(\tan^{3}{\frac{f_{2}}{2}}-\tan^{3}{\frac{f_{1}}{2}}\right)\right]</script><script type="math/tex; mode=display">
-=\frac{1}{6\bar{n}}\left(\tan{\frac{f_{2}}{2}}-\tan{\frac{f_{1}}{2}}\right)\left[\left(\tan{\frac{f_{2}}{2}}-\tan{\frac{f_{1}}{2}}\right)^{2}+3\left(1+\tan{\frac{f_{1}}{2}}\tan{\frac{f_{2}}{2}}\right)\right]</script><p>根据余弦定理, 之间的距离为:</p>
-<script type="math/tex; mode=display">
-s^{2}=r_{1}^{2}+r_{2}^{2}-2r_{1}r_{2}\cos{(f_{2}-f_{1})}</script><p>得：</p>
-<script type="math/tex; mode=display">
-2\sqrt{r_{1}r_{2}}\cos{\frac{f_{2}-f_{1}}{2}}=\pm\sqrt{(r_{1}+r_{2}+s)(r_{1}+r_{2}-s)}</script><p>考虑到$r_{i}=\frac{p}{2}\sec^{2}{\frac{f_{i}}{2}}, i=1,2$, 则：</p>
-<script type="math/tex; mode=display">
-2\sqrt{r_{1}r_{2}}\cos{\frac{f_{2}-f_{1}}{2}}=\frac{p}{\cos{\frac{f_{1}}{2}}\cos{\frac{f_{2}}{2}}}\left(\cos{\frac{f_{1}}{2}}\cos{\frac{f_{2}}{2}}+\sin{\frac{f_{1}}{2}}\sin{\frac{f_{2}}{2}}\right)</script><p>故：</p>
-<script type="math/tex; mode=display">
-1+\tan{\frac{f_{1}}{2}}\tan{\frac{f_{2}}{2}}=\pm\frac{1}{p}\sqrt{(r_{1}+r_{2}+s)(r_{1}+r_{2}-s)}</script><p>而：</p>
-<script type="math/tex; mode=display">
-r_{1}+r_{2}=\frac{p}{2}\left(\sec^{2}{\frac{f_{1}}{2}}+\sec^{2}{\frac{f_{2}}{2}}\right)=\frac{p}{2}\left(2+\tan^{2}{\frac{f_{1}}{2}}+\tan^{2}{\frac{f_{2}}{2}}\right)</script><p>故：</p>
-<script type="math/tex; mode=display">
-\tan^{2}{\frac{f_{1}}{2}}+\tan^{2}{\frac{f_{2}}{2}}=\frac{2}{p}(r_{1}+r_{2})-2</script><p>从而：</p>
-<script type="math/tex; mode=display">
-\left(\tan{\frac{f_{2}}{2}}-\tan{\frac{f_{1}}{2}}\right)^{2}=\tan^{2}{\frac{f_{1}}{2}}+\tan^{2}{\frac{f_{2}}{2}}-2\tan{\frac{f_{1}}{2}}\tan{\frac{f_{2}}{2}}</script><script type="math/tex; mode=display">
-=\frac{2}{p}(r_{1}+r_{2})-2-2\left[\pm\frac{1}{p}\sqrt{(r_{1}+r_{2}+s)(r_{1}+r_{2}-s)}-1\right]</script><script type="math/tex; mode=display">
-=\frac{2}{p}\left[r_{1}+r_{2}\mp\sqrt{(r_{1}+r_{2}+s)(r_{1}+r_{2}-s)}\right]</script><p>从而：</p>
-<script type="math/tex; mode=display">
-6\sqrt{\mu}\left(t_{2}-t_{1}\right)=\left(r_{1}+r_{2}+s\right)^{\frac{3}{2}}\mp\left(r_{1}+r_{2}-s\right)^{\frac{3}{2}}</script><p>这就得到行星在两时刻的向径和弦之间的关系式, 该式是由欧拉发现的, 故称为欧拉方程.</p>
-<h2><span id="双曲线轨道">双曲线轨道</span></h2><p>若偏心率$e&gt;1$, 则运动的轨道为双曲线. 此时轨道方程为:</p>
-<script type="math/tex; mode=display">
-r=\frac{a(e^{2}-1)}{1+e\cos{f}}</script><p><img src="https://static01.imgkr.com/temp/76e87513f1ee4e28a701da0c6ac64fe8.jpg" alt><center>双曲线轨道示意图</center></p>
-<p>速度$v^{2}=v_{r}^{2}+v_{f}^{2}$, 其中：</p>
-<script type="math/tex; mode=display">
-v_{f}^{2}=r^{2}{\dot{f}}^{2}=\frac{\mu a(e^{2}-1)}{r^{2}}</script><script type="math/tex; mode=display">
-v_{r}^{2}=\left(\frac{dr}{dt}\right)^{2}={\dot{f}}^{2}\left(\frac{dr}{df}\right)^{2}=\mu\left(\frac{2}{r}+\frac{1}{a}\right)-\frac{\mu a(e^{2}-1)}{r^{2}}</script><p>故：</p>
-<script type="math/tex; mode=display">
-v^{2}=\mu\left(\frac{2}{r}+\frac{1}{a}\right)</script><p>可见, 双曲线轨道的速度$v&gt;\sqrt{\frac{2\mu}{r}}$.</p>
+<p>$$<br>
+t_{1}=\frac{1}{2\bar{n}}\left(\tan{\frac{f_{1}}{2}}+\frac{1}{3}\tan^{3}{\frac{f_{1}}{2}}\right)<br>
+$$</p>
+<p>$$<br>
+t_{2}=\frac{1}{2\bar{n}}\left(\tan{\frac{f_{2}}{2}}+\frac{1}{3}\tan^{3}{\frac{f_{2}}{2}}\right)<br>
+$$</p>
+<p>相减, 得:</p>
+<p>$$<br>
+t_{2}-t_{1}=\frac{1}{2\bar{n}}\left[\left(\tan{\frac{f_{2}}{2}}-\tan{\frac{f_{1}}{2}}\right)+\frac{1}{3}\left(\tan^{3}{\frac{f_{2}}{2}}-\tan^{3}{\frac{f_{1}}{2}}\right)\right]<br>
+$$</p>
+<p>$$<br>
+=\frac{1}{6\bar{n}}\left(\tan{\frac{f_{2}}{2}}-\tan{\frac{f_{1}}{2}}\right)\left[\left(\tan{\frac{f_{2}}{2}}-\tan{\frac{f_{1}}{2}}\right)^{2}+3\left(1+\tan{\frac{f_{1}}{2}}\tan{\frac{f_{2}}{2}}\right)\right]<br>
+$$</p>
+<p>根据余弦定理, 之间的距离为:</p>
+<p>$$<br>
+s^{2}=r_{1}^{2}+r_{2}^{2}-2r_{1}r_{2}\cos{(f_{2}-f_{1})}<br>
+$$</p>
+<p>得：</p>
+<p>$$<br>
+2\sqrt{r_{1}r_{2}}\cos{\frac{f_{2}-f_{1}}{2}}=\pm\sqrt{(r_{1}+r_{2}+s)(r_{1}+r_{2}-s)}<br>
+$$</p>
+<p>考虑到$r_{i}=\frac{p}{2}\sec^{2}{\frac{f_{i}}{2}}, i=1,2$, 则：</p>
+<p>$$<br>
+2\sqrt{r_{1}r_{2}}\cos{\frac{f_{2}-f_{1}}{2}}=\frac{p}{\cos{\frac{f_{1}}{2}}\cos{\frac{f_{2}}{2}}}\left(\cos{\frac{f_{1}}{2}}\cos{\frac{f_{2}}{2}}+\sin{\frac{f_{1}}{2}}\sin{\frac{f_{2}}{2}}\right)<br>
+$$</p>
+<p>故：</p>
+<p>$$<br>
+1+\tan{\frac{f_{1}}{2}}\tan{\frac{f_{2}}{2}}=\pm\frac{1}{p}\sqrt{(r_{1}+r_{2}+s)(r_{1}+r_{2}-s)}<br>
+$$</p>
+<p>而：</p>
+<p>$$<br>
+r_{1}+r_{2}=\frac{p}{2}\left(\sec^{2}{\frac{f_{1}}{2}}+\sec^{2}{\frac{f_{2}}{2}}\right)=\frac{p}{2}\left(2+\tan^{2}{\frac{f_{1}}{2}}+\tan^{2}{\frac{f_{2}}{2}}\right)<br>
+$$</p>
+<p>故：</p>
+<p>$$<br>
+\tan^{2}{\frac{f_{1}}{2}}+\tan^{2}{\frac{f_{2}}{2}}=\frac{2}{p}(r_{1}+r_{2})-2<br>
+$$</p>
+<p>从而：</p>
+<p>$$<br>
+\left(\tan{\frac{f_{2}}{2}}-\tan{\frac{f_{1}}{2}}\right)^{2}=\tan^{2}{\frac{f_{1}}{2}}+\tan^{2}{\frac{f_{2}}{2}}-2\tan{\frac{f_{1}}{2}}\tan{\frac{f_{2}}{2}}<br>
+$$</p>
+<p>$$<br>
+=\frac{2}{p}(r_{1}+r_{2})-2-2\left[\pm\frac{1}{p}\sqrt{(r_{1}+r_{2}+s)(r_{1}+r_{2}-s)}-1\right]<br>
+$$</p>
+<p>$$<br>
+=\frac{2}{p}\left[r_{1}+r_{2}\mp\sqrt{(r_{1}+r_{2}+s)(r_{1}+r_{2}-s)}\right]<br>
+$$</p>
+<p>从而：</p>
+<p>$$<br>
+6\sqrt{\mu}\left(t_{2}-t_{1}\right)=\left(r_{1}+r_{2}+s\right)^{\frac{3}{2}}\mp\left(r_{1}+r_{2}-s\right)^{\frac{3}{2}}<br>
+$$</p>
+<p>这就得到行星在两时刻的向径和弦之间的关系式, 该式是由欧拉发现的, 故称为欧拉方程.</p>
+<h2><span id="双曲线轨道">双曲线轨道</span></h2>
+<p>若偏心率$e&gt;1$, 则运动的轨道为双曲线. 此时轨道方程为:<br>
+$$<br>
+r=\frac{a(e^{2}-1)}{1+e\cos{f}}<br>
+$$</p>
+<p><img src="https://static01.imgkr.com/temp/76e87513f1ee4e28a701da0c6ac64fe8.jpg" alt><center>双曲线轨道示意图</center></p>
+<p>速度$v^{2}=v_{r}^{2}+v_{f}^{2}$, 其中：<br>
+$$<br>
+v_{f}^{2}=r^{2}{\dot{f}}^{2}=\frac{\mu a(e^{2}-1)}{r^{2}}<br>
+$$</p>
+<p>$$<br>
+v_{r}^{2}=\left(\frac{dr}{dt}\right)^{2}={\dot{f}}^{2}\left(\frac{dr}{df}\right)^{2}=\mu\left(\frac{2}{r}+\frac{1}{a}\right)-\frac{\mu a(e^{2}-1)}{r^{2}}<br>
+$$</p>
+<p>故：<br>
+$$<br>
+v^{2}=\mu\left(\frac{2}{r}+\frac{1}{a}\right)<br>
+$$</p>
+<p>可见, 双曲线轨道的速度$v&gt;\sqrt{\frac{2\mu}{r}}$.</p>
 <p>由上可知:</p>
-<script type="math/tex; mode=display">
-{\dot{r}}^{2}=v_{r}^{2}=\mu\left(\frac{2}{r}+\frac{1}{a}\right)-\frac{\mu a(e^{2}-1)}{r^{2}}=\frac{\mu}{ar^{2}}\left[(a+r)^{2}-a^{2}e^{2}\right]</script><p>定义平运动频率$\nu$:$\nu^{2}a^{3}=\mu$, 则：</p>
-<script type="math/tex; mode=display">
-\nu dt=\frac{rdr}{a\sqrt{(a+r)^{2}-a^{2}e^{2}}}</script><p>令$r=a(e\cosh{\xi}-1)$, 则：</p>
-<script type="math/tex; mode=display">
-\nu(t-\tau)=e\sinh{\xi}-\xi</script><p>此为双曲线轨道的开普勒方程.</p>
+<p>$$<br>
+{\dot{r}}^{2}=v_{r}^{2}=\mu\left(\frac{2}{r}+\frac{1}{a}\right)-\frac{\mu a(e^{2}-1)}{r^{2}}=\frac{\mu}{ar^{2}}\left[(a+r)^{2}-a^{2}e^{2}\right]<br>
+$$</p>
+<p>定义平运动频率$\nu$:$\nu^{2}a^{3}=\mu$, 则：<br>
+$$<br>
+\nu dt=\frac{rdr}{a\sqrt{(a+r)^{2}-a^{2}e^{2}}}<br>
+$$</p>
+<p>令$r=a(e\cosh{\xi}-1)$, 则：<br>
+$$<br>
+\nu(t-\tau)=e\sinh{\xi}-\xi<br>
+$$</p>
+<p>此为双曲线轨道的开普勒方程.</p>
 
                 
 
