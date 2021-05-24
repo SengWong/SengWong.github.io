@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content>
+    <meta name="keyword" content>
+    <link rel="shortcut icon" href="/img/ironman-draw.png">
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <title>
+        
+          利用PYTHON模拟动态心 - StarKing
+        
+    </title>
+
+    <link rel="canonical" href="http://sengwong.top/2021/05/24/Heart/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS --> 
+    <link rel="stylesheet" href="/css/beantech.min.css">
+    
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css">
+
+    <link rel="stylesheet" href="/css/widget.css">
+
+    <link rel="stylesheet" href="/css/rocket.css">
+
+    <link rel="stylesheet" href="/css/signature.css">
+
+    <link rel="stylesheet" href="/css/toc.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+	<!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        
+            background-image: url('astro.png')
+            /*post*/
+        
+    }
+    
+    #signature{
+        background-image: url('/img/signature/signature.png');
+    }
+    
+</style>
+
+<header class="intro-header" >
+    <!-- Signature -->
+    <div id="signature">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                
+                    <div class="post-heading">
+                        <div class="tags">
+                            
+                              <a class="tag" href="/tags/#生活记录" title="生活记录">生活记录</a>
+                            
+                        </div>
+                        <h1>利用PYTHON模拟动态心</h1>
+                        <h2 class="subheading"></h2>
+                        <span class="meta">
+                            Posted by StarKing on
+                            2021-05-24
+                        </span>
+                    </div>
+                
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+	
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">StarKing</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/Publication/">论文发表</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archive/">归档</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/Research-Interests/">研究兴趣</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">关于我</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">标签</a>
+                        </li>
+                        
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    <!-- Modify by Yu-Hsuan Yen -->
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <p>数学是浪漫的. 那么浪漫何在？那么本文就将利用PYTHON来实现一系列简单的几何曲线的动态模拟效果.</p>
+<p>首先研究两个二元函数. 对于函数：<br>
+$$<br>
+f_{1}(t,x)=|x|^{\frac{2}{3}}+a\sqrt{b^{2}-x^{2}}\sin(tx),\quad |x|&lt; |b|<br>
+$$<br>
+那么这个函数初看没感觉,其实是关于时间$t$,以及一维空间$x$的函数.那么它怎么随时间变化呢?<br>
+PYTHON模拟即可得到:</p>
+<div align="center">
+<video src="Heart_fun_01.mp4" controls="controls" width="500" height="500" loop="loop"></video><center>简单的曲线聚合成一颗心，其中参数为: $a=0.9, b=\sqrt{3.3}$😊</center>
+</div>
+<p>再对于函数:<br>
+$$<br>
+f_{2}(t,x)=\sqrt{|\cos x|}\cos (tx) +\sqrt{|x|-0.7}(4-x^{2})^{0.01}<br>
+$$<br>
+同理，它随时间变化的动图如下:</p>
+<div align="center">
+<video src="Heart_fun_02.mp4" controls="controls" width="500" height="500" loop="loop"></video><center>曲线聚合成一颗抖动的心😋</center>
+</div>
+<p>神奇的动态心形线产生.那么一般常见的心型曲线表达式为$r=a(1-\sin \theta )$. 然而画出的图并不美观.现考虑另一个表达式:<br>
+$$<br>
+x(\theta)=16\sin^{3}\theta<br>
+$$<br>
+$$<br>
+y(\theta)=13\cos\theta -5\cos 2\theta -2\cos 3\theta -\cos 4\theta<br>
+$$<br>
+当然直接画出来只是一条闭合曲线. 为了填充闭合曲线,就需要一点技巧.技巧就在于沿着径向方向进行放缩.</p>
+<div align="center"><img width="500" height="500" src="https://static01.imgkr.com/temp/00db9ba4376f44c7abe1439cddf6bddf.png"></div><center>通过径向放缩填充(我真是太机智了😝)</center>
+<p>其PYTHON代码如下:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#生成一个心形填充区域</span></span><br><span class="line">N=<span class="number">150</span></span><br><span class="line">num_theta=N</span><br><span class="line">num_radius=N</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">heart_dis</span><span class="params">(theta)</span>:</span></span><br><span class="line">    t=np.linspace(<span class="number">0</span>,np.pi/<span class="number">2</span>,num_radius)</span><br><span class="line">    pos_x=np.ones((num_radius,num_theta))</span><br><span class="line">    pos_y=np.ones((num_radius,num_theta))</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(t)):</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(len(theta)):</span><br><span class="line">            pos_x[i,j]=<span class="number">16</span>*np.sin(theta[j])**<span class="number">3</span>*np.sin(t[i])</span><br><span class="line">            pos_y[i,j]=(<span class="number">13</span>*np.cos(theta[j])<span class="number">-5</span>*np.cos(<span class="number">2</span>*theta[j])<span class="number">-2</span>*np.cos(<span class="number">3</span>*theta[j])-np.cos(<span class="number">4</span>*theta[j]))*np.sin(t[i])</span><br><span class="line">    <span class="keyword">return</span> pos_x,pos_y</span><br><span class="line">theta_heart=np.linspace(<span class="number">0</span>,<span class="number">2</span>*np.pi,num_theta)</span><br><span class="line">pos_heart_x,pos_heart_y=heart_dis(theta_heart)</span><br></pre></td></tr></table></figure>
+<p>看这静态图,实属困乏.咱让它动起来.怎么动？当然是要摇摆起来啦.</p>
+<div align="center">
+<video src="Heart_sway.mp4" controls="controls" width="500" height="500" loop="loop"></video><center>这次心抖得更厉害了😂</center>
+</div>
+<p>这个效果实现呢？当然可以考虑PDE中的一些方程啦.上述效果利用了对流方程的解来实现摇摆效果.</p>
+<blockquote>
+<p>原理分析：</p>
+<ul>
+<li>设粒子速度矢量函数$\textbf{v}(x,y,t)=(v_{x}(x,y,t),v_{y}(x,y,t))$满足如下对流方程:<br>
+$$<br>
+\frac{\partial \textbf{v}}{\partial x}+c_{x}\frac{\partial \textbf{v}}{\partial t}=0<br>
+$$</li>
+<li>那么其中的一个解析解为:<br>
+$$<br>
+v_{x}(x,y,t)=-v_{x,0}\sin(\lambda_x x-\omega t)\cos \frac{\lambda_{y}y}{2}<br>
+$$<br>
+$$<br>
+v_{y}(x,y,t)=v_{y,0}\cos(\lambda_x x-\omega t)\sin \frac{\lambda_{y}y}{2}<br>
+$$</li>
+<li>其中$c_{x}$为$x$轴方向的相速度,$\lambda_{x}=\frac{2\pi}{W}$,$\lambda_{y}=\frac{2\pi}{H}$为$x,y$轴方向的波长,$W,H$为粒子运动区域的水平和垂直长度.</li>
+</ul>
+</blockquote>
+<p>PYTHON实现的代码如下:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 实现心形区域的摇摆效果</span></span><br><span class="line">W=max(pos_heart_x[<span class="number">-1</span>,:])-min(pos_heart_x[<span class="number">-1</span>,:])</span><br><span class="line">H=max(pos_heart_y[<span class="number">-1</span>,:])-min(pos_heart_y[<span class="number">-1</span>,:])</span><br><span class="line">vx0=<span class="number">1.</span> </span><br><span class="line">vy0=<span class="number">3.</span> </span><br><span class="line">cx=<span class="number">10.</span> </span><br><span class="line">dt=<span class="number">1</span></span><br><span class="line">T=<span class="number">100</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>,T,dt):</span><br><span class="line">    rx_i=pos_heart_x-vx0*np.cos(np.pi*pos_heart_y/H)*(W/(<span class="number">2</span>*np.pi*cx))*(np.cos((<span class="number">2</span>*np.pi*(pos_heart_x-cx*dt*i))/W)-np.cos((<span class="number">2</span>*np.pi*pos_heart_x)/W))</span><br><span class="line">    ry_i=pos_heart_y-vy0*np.sin(np.pi*pos_heart_y/H)*(W/(<span class="number">2</span>*np.pi*cx))*(np.sin((<span class="number">2</span>*np.pi*(pos_heart_x-cx*dt*i))/W)-np.sin((<span class="number">2</span>*np.pi*pos_heart_x)/W))</span><br><span class="line">    fig= plt.figure(figsize=(<span class="number">10</span>,<span class="number">10</span>))</span><br><span class="line">    ax = plt.gca()</span><br><span class="line">    plt.scatter(rx_i,ry_i,s=<span class="number">1</span>,color=<span class="string">'r'</span>)</span><br></pre></td></tr></table></figure>
+<p>除了摇摆起来还能干啥?当然是模拟心跳啦：</p>
+<div align="center">
+<video src="heart_zoom_in.mp4" controls="controls" width="500" height="500" loop="loop"></video><center>心忽大忽小💓</center>
+</div>
+<blockquote>
+<p>原理分析:</p>
+<ul>
+<li>实际上就是沿着径向放缩.粒子随时间放缩的位置函数为:<br>
+$$<br>
+r_{x}(x,y,t)=Ar_{x}(x,y,0)(1+|\sin(\omega t)|)<br>
+$$<br>
+$$<br>
+r_{y}(x,y,t)=Ar_{y}(x,y,0)(1+|\sin(\omega t)|)<br>
+$$<br>
+咱称这个函数为心跳函数好啦.</li>
+<li>其中$\omega$称为心跳频率,$\frac{A}{2}$称作心跳振幅.</li>
+</ul>
+</blockquote>
+<p>PYTHON实现的代码如下:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 模拟心跳效果</span></span><br><span class="line">T=<span class="number">1</span></span><br><span class="line">omega=<span class="number">2</span>*np.pi/T</span><br><span class="line">A=<span class="number">0.2</span></span><br><span class="line">t_zoom=np.linspace(<span class="number">0</span>,T,<span class="number">31</span>)</span><br><span class="line">r_zoom_x=np.zeros((len(t_zoom),num_radius,num_theta))</span><br><span class="line">r_zoom_y=np.zeros((len(t_zoom),num_radius,num_theta))</span><br><span class="line"><span class="keyword">for</span> k <span class="keyword">in</span> range(len(t_zoom)):</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(num_radius):</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(num_theta):</span><br><span class="line">            r_zoom_x[:,i,j]=pos_heart_x[i,j]*A*(abs(np.sin(omega*t_zoom[k]))+<span class="number">1</span>)</span><br><span class="line">            r_zoom_y[:,i,j]=pos_heart_y[i,j]*A*(abs(np.sin(omega*t_zoom[k]))+<span class="number">1</span>)</span><br><span class="line">    fig= plt.figure(figsize=(<span class="number">10</span>,<span class="number">10</span>))</span><br><span class="line">    ax = plt.gca()</span><br><span class="line">    plt.scatter(r_zoom_x[k,:,:],r_zoom_y[k,:,:],s=<span class="number">1</span>,color=<span class="string">'r'</span>)</span><br></pre></td></tr></table></figure>
+<p>简单的数学被玩出花来.</p>
+<p>玩花？</p>
+<p>玩什么花？</p>
+<p>那就来玩玫瑰花咯.</p>
+<div align="center"><img width="500" height="500" src="https://static01.imgkr.com/temp/15de4735e3224fa6a6a7526879111b6c.png"></div><center>咯,一朵玫瑰花🌹</center>
+<blockquote>
+<p>原理分析：</p>
+<ul>
+<li>其实这就是三叶玫瑰曲线;</li>
+<li>该类曲线的极坐标方程为$r=a\sin(k\theta)$.$k=3$就为上述情形;</li>
+<li>两片绿叶取$k=7$的俩瓣.</li>
+</ul>
+</blockquote>
+<p>PYTHON实现的代码如下:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 画一朵玫瑰花</span></span><br><span class="line">N=<span class="number">100</span></span><br><span class="line">num_theta=N</span><br><span class="line">num_radius=N</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">rose_func</span><span class="params">(a,d,rose_central_vec,theta)</span>:</span></span><br><span class="line">    t=np.linspace(<span class="number">0</span>,np.pi/<span class="number">2</span>,num_radius)</span><br><span class="line">    pos_x=np.ones((num_radius,num_theta))</span><br><span class="line">    pos_y=np.ones((num_radius,num_theta))</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(t)):</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(len(theta)):</span><br><span class="line">            r_j=a*np.cos(d*theta[j])</span><br><span class="line">            pos_x[i,j]=r_j*np.cos(theta[j])*np.sin(t[i])</span><br><span class="line">            pos_y[i,j]=r_j*np.sin(theta[j])*np.sin(t[i])</span><br><span class="line">    <span class="keyword">return</span> pos_x+rose_central_vec[<span class="number">0</span>],pos_y+rose_central_vec[<span class="number">1</span>]</span><br><span class="line"></span><br><span class="line">theta_rose=np.linspace(<span class="number">0</span>,<span class="number">2</span>*np.pi,num_theta)</span><br><span class="line">rose_central_vec=np.array([<span class="number">0</span>,<span class="number">2</span>])</span><br><span class="line">pos_rose_x,pos_rose_y=rose_func(<span class="number">1</span>,<span class="number">3</span>,rose_central_vec,theta_rose)</span><br><span class="line"></span><br><span class="line">theta_leaf_r=np.linspace((<span class="number">2</span>*np.pi/<span class="number">7</span>)*(<span class="number">3</span>/<span class="number">4</span>),(<span class="number">2</span>*np.pi/<span class="number">7</span>)*(<span class="number">5</span>/<span class="number">4</span>),num_theta)</span><br><span class="line">pos_leaf_r_x,pos_leaf_r_y=rose_func(<span class="number">0.3</span>,<span class="number">7</span>,np.array([<span class="number">0</span>,<span class="number">1</span>]),theta_leaf_r)</span><br><span class="line">pos_leaf_l_x=-pos_leaf_r_x</span><br><span class="line">pos_leaf_l_y=pos_leaf_r_y<span class="number">-0.3</span></span><br><span class="line">pos_stalk_x=np.zeros(num_theta)</span><br><span class="line">pos_stalk_y=np.linspace(<span class="number">0</span>,rose_central_vec[<span class="number">1</span>],num_theta)</span><br></pre></td></tr></table></figure>
+<p>同样, 让它动起来. 首先让它转转:</p>
+<div align="center">
+<video src="rose_rotation.mp4" controls="controls" width="500" height="500" loop="loop"></video><center>玫瑰花的魔力转圈圈💞</center>
+</div>
+<blockquote>
+<p>原理分析:</p>
+<ul>
+<li>为了实现旋转效果,当然是利用旋转矩阵啦:<br>
+$$<br>
+\textbf{R} (x,y,\theta)=\textbf{M} (\textbf{R} (x,y,0)-\textbf{R} _{c})+\textbf{R} _{c}<br>
+$$</li>
+<li>其中$\textbf{R}(x,y,\theta)$为粒子旋转随旋转角变化的位矢,$\textbf{R}_{c}$为旋转中心位矢量.$\textbf{M}$为旋转矩阵:<br>
+$$<br>
+\textbf{M}=<br>
+\left[<br>
+\begin{matrix}<br>
+\cos\theta &amp; -\sin \theta\<br>
+\sin \theta &amp; \cos\theta<br>
+\end{matrix}<br>
+\right]<br>
+$$</li>
+</ul>
+</blockquote>
+<p>PYTHON实现的代码如下:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 模拟玫瑰花旋转效果</span></span><br><span class="line">t_rotation=np.linspace(<span class="number">0</span>,<span class="number">6</span>*np.pi,<span class="number">21</span>)</span><br><span class="line">r_rotation_x=np.zeros((len(t_rotation),num_radius,num_theta))</span><br><span class="line">r_rotation_y=np.zeros((len(t_rotation),num_radius,num_theta))</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> k <span class="keyword">in</span> range(len(t_rotation)):</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(N):</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(N):</span><br><span class="line">            r_rotation_x[:,i,j]=(pos_rose_x[i,j]-rose_central_vec[<span class="number">0</span>])*np.cos(t_rotation[k])-(pos_rose_y[i,j]-rose_central_vec[<span class="number">1</span>])*np.sin(t_rotation[k])+rose_central_vec[<span class="number">0</span>]</span><br><span class="line">            r_rotation_y[:,i,j]=(pos_rose_x[i,j]-rose_central_vec[<span class="number">0</span>])*np.sin(t_rotation[k])+(pos_rose_y[i,j]-rose_central_vec[<span class="number">1</span>])*np.cos(t_rotation[k])+rose_central_vec[<span class="number">1</span>]</span><br><span class="line">    fig= plt.figure(figsize=(<span class="number">10</span>,<span class="number">10</span>))</span><br><span class="line">    ax = plt.gca()</span><br><span class="line">    plt.scatter(r_rotation_x[k,:,:],r_rotation_y[k,:,:],s=<span class="number">1</span>,color=<span class="string">'r'</span>)</span><br><span class="line">    plt.scatter(pos_leaf_r_x,pos_leaf_r_y,s=<span class="number">1</span>,color=<span class="string">'g'</span>)</span><br><span class="line">    plt.scatter(pos_leaf_l_x,pos_leaf_l_y,s=<span class="number">1</span>,color=<span class="string">'g'</span>)</span><br><span class="line">    plt.scatter(pos_stalk_x,pos_stalk_y,s=<span class="number">20</span>,color=<span class="string">'black'</span>)</span><br><span class="line">    plt.xlim(<span class="number">-1.6</span>,<span class="number">1.6</span>)</span><br><span class="line">    plt.ylim(<span class="number">-0.1</span>,<span class="number">3.2</span>)</span><br></pre></td></tr></table></figure>
+<p>转完后当然再模拟缩放效果啦：</p>
+<div align="center">
+<video src="rose_zoom_in.mp4" controls="controls" width="500" height="500" loop="loop"></video><center>绽放的玫瑰花🌷</center>
+</div>
+<blockquote>
+<p>原理分析：</p>
+<ul>
+<li>同理,在径向方向进行缩放.</li>
+</ul>
+</blockquote>
+<p>PYTHON实现的代码如下:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 模拟玫瑰花缩放效果</span></span><br><span class="line">T=<span class="number">1</span></span><br><span class="line">omega=<span class="number">2</span>*np.pi/T</span><br><span class="line">A=<span class="number">0.7</span></span><br><span class="line">t_zoom=np.linspace(<span class="number">0</span>,T,<span class="number">31</span>)</span><br><span class="line">r_zoom_x=np.zeros((len(t_zoom),num_radius,num_theta))</span><br><span class="line">r_zoom_y=np.zeros((len(t_zoom),num_radius,num_theta))</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> k <span class="keyword">in</span> range(len(t_zoom)):</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(num_radius):</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(num_theta):</span><br><span class="line">            r_zoom_x[:,i,j]=(pos_rose_x[i,j]-rose_central_vec[<span class="number">0</span>])*A*(abs(np.sin(omega*t_zoom[k]))+<span class="number">1</span>)+rose_central_vec[<span class="number">0</span>]</span><br><span class="line">            r_zoom_y[:,i,j]=(pos_rose_y[i,j]-rose_central_vec[<span class="number">1</span>])*A*(abs(np.sin(omega*t_zoom[k]))+<span class="number">1</span>)+rose_central_vec[<span class="number">1</span>]</span><br><span class="line">    fig= plt.figure(figsize=(<span class="number">10</span>,<span class="number">10</span>))</span><br><span class="line">    ax = plt.gca()</span><br><span class="line">    plt.scatter(r_zoom_x[k,:,:],r_zoom_y[k,:,:],s=<span class="number">1</span>,color=<span class="string">'r'</span>)</span><br><span class="line">    plt.scatter(pos_leaf_r_x,pos_leaf_r_y,s=<span class="number">1</span>,color=<span class="string">'g'</span>)</span><br><span class="line">    plt.scatter(pos_leaf_l_x,pos_leaf_l_y,s=<span class="number">1</span>,color=<span class="string">'g'</span>)</span><br><span class="line">    plt.scatter(pos_stalk_x,pos_stalk_y,s=<span class="number">20</span>,color=<span class="string">'black'</span>)</span><br><span class="line">    plt.xlim(<span class="number">-1.6</span>,<span class="number">1.6</span>)</span><br><span class="line">    plt.ylim(<span class="number">-0.1</span>,<span class="number">3.2</span>)</span><br></pre></td></tr></table></figure>
+<p>接下来进入高能时刻,再来玩心碎.</p>
+<p>心碎？</p>
+<p>那就来模拟心碎了一地的效果好咯：</p>
+<div align="center">
+<video src="Heart_break.mp4" controls="controls" width="500" height="500" loop="loop"></video><center>哒哒哒...,听, 那是心碎了一地并多次弹跳的声音💚</center>
+</div>
+<blockquote>
+<p>原理分析:</p>
+<ul>
+<li>考虑粒子碰到地面弹跳的物理模型,就实现了心碎了一地的效果.</li>
+<li>对于粒子弹跳模型,设粒子初始时刻的高度为$H$,然后作自由落体运动,在$t=t_{0}$时刻碰到地面,则$t_{0}=\sqrt{\frac{2H}{g}}$,$y(t)=H-\frac{1}{2}gt^{2}$.碰到地面后反弹,假设粒子反弹后的速度方向与反弹前的速度反向,且大小衰减为反弹前的$\alpha$倍. 设粒子在第$k$次反弹的时刻为$t_{k}$,掐指一算,$t_{k}$的关系式为:<br>
+$$<br>
+t_{k}=\left[1+\frac{2\alpha(1-\alpha^{k})}{1-\alpha}\right]t_{0}<br>
+$$</li>
+<li>那么粒子在$[t_{k},t_{k+1}]$时间内弹跳高度随时间变化函数为：<br>
+$$<br>
+y_{k+1}(t)=y_{0}+\alpha^{k+1}gt_{0}(t-t_{k})-\frac{g}{2}(t-t_{k})^{2}<br>
+$$</li>
+<li>$y_{0}$为地面的纵坐标值.</li>
+</ul>
+</blockquote>
+<p>PYTHON实现粒子弹跳的代码如下:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 定义粒子弹跳的函数</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">Particle_Bounce</span><span class="params">(y_init,y_end,t_span,alpha,g)</span>:</span></span><br><span class="line">    H=y_init-y_end</span><br><span class="line">    t0=np.sqrt(<span class="number">2</span>*H/g)</span><br><span class="line">    A=<span class="number">1</span>-((max(t_span)/t0)<span class="number">-1</span>)*((<span class="number">1</span>-alpha)/<span class="number">2</span>*alpha)</span><br><span class="line">    N_total=int((np.log(A)/(np.log(alpha))))</span><br><span class="line">    interval_0=[<span class="number">1</span> <span class="keyword">if</span>(t&lt;t0) <span class="keyword">else</span> <span class="number">0</span> <span class="keyword">for</span> t <span class="keyword">in</span> t_span]</span><br><span class="line">    y0=y_init-(g/<span class="number">2</span>)*(t_span**<span class="number">2</span>)</span><br><span class="line">    y_k_sum=<span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> k <span class="keyword">in</span> range(<span class="number">0</span>,N_total):</span><br><span class="line">        t_k=(<span class="number">1</span>+((<span class="number">2</span>*alpha*(<span class="number">1</span>-alpha**k))/(<span class="number">1</span>-alpha)))*t0</span><br><span class="line">        t_k_plus_1=(<span class="number">1</span>+((<span class="number">2</span>*alpha*(<span class="number">1</span>-alpha**(k+<span class="number">1</span>)))/(<span class="number">1</span>-alpha)))*t0</span><br><span class="line">        interval_k=[<span class="number">1</span> <span class="keyword">if</span>(t_k&lt;t&lt;t_k_plus_1) <span class="keyword">else</span> <span class="number">0</span> <span class="keyword">for</span> t <span class="keyword">in</span> t_span]</span><br><span class="line">        y_k=y_end+(alpha**(k+<span class="number">1</span>))*g*t0*(t_span-t_k)-(g/<span class="number">2</span>)*((t_span-t_k)**<span class="number">2</span>)</span><br><span class="line">        y_k_sum+=y_k*interval_k</span><br><span class="line">    t_N_plus_1=(<span class="number">1</span>+((<span class="number">2</span>*alpha*(<span class="number">1</span>-alpha**(N+<span class="number">1</span>)))/(<span class="number">1</span>-alpha)))*t0 </span><br><span class="line">    interval_N_puls_1=[<span class="number">1</span> <span class="keyword">if</span>(t&gt;t_N_plus_1) <span class="keyword">else</span> <span class="number">0</span> <span class="keyword">for</span> t <span class="keyword">in</span> t_span]</span><br><span class="line">    y_N_plus_1=y_end*np.ones(len(t_span))</span><br><span class="line">    y=y0*interval_0+y_k_sum+y_N_plus_1*interval_N_puls_1</span><br><span class="line">    <span class="keyword">return</span> y</span><br></pre></td></tr></table></figure>
+<p>心碎效果不够,再加上心裂好了:</p>
+<div align="center">
+<video src="Heart_broken_and_fall.mp4" controls="controls" width="500" height="500" loop="loop"></video><center>心不仅裂开了,还碎了一地💔</center>
+</div>
+<blockquote>
+<p>原理分析:</p>
+<ul>
+<li>将心形区域分成左右两半,再各自旋转即可模拟心裂效果.</li>
+</ul>
+</blockquote>
+<p>PYTHON实现心裂的代码如下:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 模拟心裂效果</span></span><br><span class="line">N=<span class="number">250</span></span><br><span class="line">num_theta=N</span><br><span class="line">num_radius=N</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">heart_dis</span><span class="params">(theta)</span>:</span></span><br><span class="line">    t=np.linspace(<span class="number">0</span>,np.pi/<span class="number">2</span>,num_radius)</span><br><span class="line">    pos_x=np.ones((num_radius,num_theta))</span><br><span class="line">    pos_y=np.ones((num_radius,num_theta))</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(t)):</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(len(theta)):</span><br><span class="line">            pos_x[i,j]=<span class="number">16</span>*np.sin(theta[j])**<span class="number">3</span>*np.sin(t[i])</span><br><span class="line">            pos_y[i,j]=(<span class="number">13</span>*np.cos(theta[j])<span class="number">-5</span>*np.cos(<span class="number">2</span>*theta[j])<span class="number">-2</span>*np.cos(<span class="number">3</span>*theta[j])-np.cos(<span class="number">4</span>*theta[j]))*np.sin(t[i])+<span class="number">16.997532836118015</span></span><br><span class="line">    <span class="keyword">return</span> pos_x,pos_y</span><br><span class="line">theta_left=np.linspace(np.pi,<span class="number">2</span>*np.pi,num_theta)</span><br><span class="line">pos_x_l,pos_y_l=heart_dis(theta_left) </span><br><span class="line">theta_right=np.linspace(<span class="number">0</span>,np.pi,num_theta)</span><br><span class="line">pos_x_r,pos_y_r=heart_dis(theta_right) </span><br><span class="line"></span><br><span class="line">t_span=np.linspace(<span class="number">0</span>,np.pi/<span class="number">10</span>,<span class="number">11</span>)</span><br><span class="line"><span class="keyword">for</span> k <span class="keyword">in</span> range(len(t_span)):</span><br><span class="line">    r_x_l=np.zeros((len(t_span),N,N))</span><br><span class="line">    r_y_l=np.zeros((len(t_span),N,N))</span><br><span class="line">    r_x_r=np.zeros((len(t_span),N,N))</span><br><span class="line">    r_y_r=np.zeros((len(t_span),N,N))</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(N):</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(N):</span><br><span class="line">            r_l_ij=np.sqrt(pos_x_l[i,j]**<span class="number">2</span>+pos_y_l[i,j]**<span class="number">2</span>)</span><br><span class="line">            r_x_l[:,i,j]=pos_x_l[i,j]-r_l_ij*np.sin(t_span[k])</span><br><span class="line">            r_y_l[:,i,j]=pos_y_l[i,j]+r_l_ij*np.cos(t_span[k])</span><br><span class="line">            r_r_ij=np.sqrt(pos_x_r[i,j]**<span class="number">2</span>+pos_y_r[i,j]**<span class="number">2</span>)</span><br><span class="line">            r_x_r[:,i,j]=pos_x_r[i,j]+r_r_ij*np.sin(t_span[k])</span><br><span class="line">            r_y_r[:,i,j]=pos_y_r[i,j]+r_r_ij*np.cos(t_span[k])</span><br><span class="line">    fig= plt.figure(figsize=(<span class="number">10</span>,<span class="number">10</span>))</span><br><span class="line">    ax = plt.gca() </span><br><span class="line">    plt.scatter(r_x_l[k,:,:],r_y_l[k,:,:],s=<span class="number">1</span>,c=<span class="string">'r'</span>)</span><br><span class="line">    plt.scatter(r_x_r[k,:,:],r_y_r[k,:,:],s=<span class="number">1</span>,c=<span class="string">'r'</span>)</span><br><span class="line">    plt.xlim(<span class="number">-21</span>,<span class="number">21</span>)</span><br></pre></td></tr></table></figure>
+<p>心裂不够,再加上一箭穿心好了:</p>
+<div align="center">
+<video src="arrow_heart_fall.mp4" controls="controls" width="500" height="500" loop="loop"></video><center>绿箭穿心,心碎了一地,连箭头都碎了💘</center>
+</div>
+<p>PYTHON生成一个朝右下的箭头的代码如下:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 生成一个朝右下的箭头</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">line</span><span class="params">(x_beg,y_beg,x_end,y_end,N)</span>:</span></span><br><span class="line">        Delta_x=x_end-x_beg</span><br><span class="line">        Delta_y=y_end-y_beg</span><br><span class="line">        L=np.sqrt(Delta_x**<span class="number">2</span>+Delta_y**<span class="number">2</span>)</span><br><span class="line">        alpha=np.arcsin(Delta_y/L)</span><br><span class="line">        k=Delta_y/Delta_x</span><br><span class="line">        x_point=np.linspace(x_beg,x_end,N)</span><br><span class="line">        y_point=k*(x_point-x_end)+y_end</span><br><span class="line">        <span class="keyword">return</span> x_point,y_point</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">arrow</span><span class="params">(arrow_x_beg,arrow_y_beg,arrow_x_end,arrow_y_end)</span>:</span> </span><br><span class="line">    Delta_x=arrow_x_end-arrow_x_beg</span><br><span class="line">    Delta_y=arrow_y_end-arrow_y_beg</span><br><span class="line">    L=np.sqrt(Delta_x**<span class="number">2</span>+Delta_y**<span class="number">2</span>)</span><br><span class="line">    alpha=abs(np.arcsin(Delta_y/L))</span><br><span class="line">    h=<span class="number">0.05</span>*L</span><br><span class="line">    w=<span class="number">0.1</span>*L</span><br><span class="line">    l=np.sqrt(h**<span class="number">2</span>+w**<span class="number">2</span>)</span><br><span class="line">    theta=np.arcsin(h/l)</span><br><span class="line">    beta=alpha+theta</span><br><span class="line">    gamma=alpha-theta</span><br><span class="line">    arrow_up_x_point=arrow_x_end-l*np.cos(beta)</span><br><span class="line">    arrow_up_y_point=arrow_y_end+l*np.sin(beta)</span><br><span class="line">    arrow_down_x_point=arrow_x_end-l*np.cos(gamma)</span><br><span class="line">    arrow_down_y_point=arrow_y_end+l*np.sin(gamma)</span><br><span class="line">    arrow_body_x,arrow_body_y=line(arrow_x_beg,arrow_y_beg,arrow_x_end,arrow_y_end,N=<span class="number">41</span>)</span><br><span class="line">    arrow_up_x,arrow_up_y=line(arrow_up_x_point,arrow_up_y_point,arrow_x_end,arrow_y_end,N=<span class="number">11</span>)</span><br><span class="line">    arrow_down_x,arrow_down_y=line(arrow_down_x_point,arrow_down_y_point,arrow_x_end,arrow_y_end,N=<span class="number">11</span>)</span><br><span class="line">    <span class="keyword">return</span> arrow_body_x,arrow_body_y,arrow_up_x,arrow_up_y,arrow_down_x,arrow_down_y,alpha</span><br><span class="line">arrow_vec=np.array([[<span class="number">-60</span>,<span class="number">50</span>],[<span class="number">-20</span>,<span class="number">30</span>]])  </span><br><span class="line">arrow_x_beg=arrow_vec[<span class="number">0</span>,<span class="number">0</span>]</span><br><span class="line">arrow_x_end=arrow_vec[<span class="number">1</span>,<span class="number">0</span>]</span><br><span class="line">arrow_y_beg=arrow_vec[<span class="number">0</span>,<span class="number">1</span>]</span><br><span class="line">arrow_y_end=arrow_vec[<span class="number">1</span>,<span class="number">1</span>]</span><br><span class="line">arrow_body_x,arrow_body_y,arrow_up_x,arrow_up_y,arrow_down_x,arrow_down_y,alpha=arrow(arrow_x_beg,arrow_y_beg,arrow_x_end,arrow_y_end)</span><br></pre></td></tr></table></figure>
+<p>心玩累了,再来模拟玫瑰花吹散并碎了一地咯:</p>
+<div align="center">
+<video src="rose_fall.mp4" controls="controls" width="500" height="500" loop="loop"></video><center>啊, 被风吹散的玫瑰花🥀, 还碎了一地😩</center>
+</div>
+<blockquote>
+<p>原理分析:</p>
+<ul>
+<li>先利用旋转矩阵模拟玫瑰花被风吹散的效果,其中旋转角$\theta$随时间变化的函数为$\theta(t)=A\sin(\omega t)$,此处灵感来自于单摆模型.</li>
+<li>为了实现旋转时弯曲的效果,令粒子在水平方向的速度为<br>
+$$<br>
+v_{x}(y)=\beta y<br>
+$$<br>
+$\beta$ 为设置弯曲程度的参数; 这样积分出来的水平位移$x(y)=\int_{0}^{y}v_{x}(y)dy=\frac{1}{2}\beta y^{2}$为关于纵坐标$y$的二次函数.</li>
+</ul>
+</blockquote>
+<p>小伙伴们学废了吗？</p>
+<h2><span id="参考文献">参考文献</span></h2>
+<p>本文不需要参考文献.</p>
+<h2><span id="后记">后记</span></h2>
+<p>是故,科研之趣味,在于数据, 在于论文,在于每行代码,我敢加班,在于昼夜画图,豪情未减. 是以照耀科研者,唯趣味二字而已.</p>
+
+                
+
+                <hr>
+                <!-- Pager -->
+                <ul class="pager">
+                    
+                    
+                        <li class="next">
+                            <a href="/2021/03/29/Journal-Club/" data-toggle="tooltip" data-placement="top" title="日常组会口头报告">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                <!-- duoshuo Share start -->
+                
+                <!-- 多说 Share end-->
+
+                <!-- 多说评论框 start -->
+                
+                <!-- 多说评论框 end -->
+
+                <!-- disqus comment start -->
+                
+                <!-- disqus comment end -->
+            </div>
+            
+            <!-- Tabe of Content -->
+            <!-- Table of Contents -->
+
+    
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">参考文献</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">后记</span></a></li></ol>
+        
+        </div>
+      </aside>
+    
+
+                
+            <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                          <a class="tag" href="/tags/#生活记录" title="生活记录">生活记录</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+
+                    
+                        <li><a href="https://www.zhihu.com/people/wang-xing-94-61" target="_blank">我的知乎</a></li>
+                    
+                        <li><a href="http://mp.weixin.qq.com/mp/getmasssendmsg?__biz=MzU0MDUxMTMxMQ==#wechat_webview_type=1&amp;wechat_redirect" target="_blank">我的微信公众号</a></li>
+                    
+                </ul>
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'hover',
+          placement: 'left',
+          icon: 'ℬ'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+
+    
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+          tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+            processEscapes: true
+          }
+        });
+      </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+            tex2jax: {
+              skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+            }
+          });
+      </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+              var all = MathJax.Hub.getAllJax(), i;
+              for(i=0; i < all.length; i += 1) {
+                  all[i].SourceElement().parentNode.className += ' has-jax';
+              }
+          });
+      </script>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; StarKing 2021 
+                    <br>
+                     Remember me: <a href="http://sengwong.top">StarKing</a> 
+                    <span style="display: inline-block; margin: 0 5px;">
+                        <i class="fa fa-heart"></i>
+                    </span>   
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://sengwong.top/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+<script>
+    // dynamic User by Hux
+    var _gaId = 'UA-XXXXXXXX-X';
+    var _gaDomain = 'yoursite';
+
+    // Originial
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
+
+
+
+
+<!-- Baidu Tongji -->
+
+
+
+
+
+
+	<a id="rocket" href="#top" class=""></a>
+	<script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+    <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
+<!-- Image to hack wechat -->
+<img src="http://sengwong.top/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>
